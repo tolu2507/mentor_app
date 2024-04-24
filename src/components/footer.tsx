@@ -26,21 +26,34 @@ export default function Footer({
           direction="vertical"
           className={`w-[1300px] mb-20 ${!show ? "pt-20" : "pt-0"}`}>
           {show && (
-            <Space className=" w-[100%] bg-white h-56 relative -top-20">
-              <Image
-                src={"/custom.jpeg"}
-                alt=""
-                fill
-                className="object-cover"
-              />
-              <Link href={"#"}>
-                <Space className="w-60 h-[64px] bg-gradient-to-tr from-white to-white rounded-lg flex-row flex justify-center items-center absolute right-[100px] top-[110px]">
-                  <Text
-                    style={{ color: "#000", fontWeight: "bold", fontSize: 24 }}>
-                    07089915606
-                  </Text>
-                </Space>
-              </Link>
+            <Space
+              className=" w-[100%] h-56 relative -top-20 bg-no-repeat bg-cover rounded-xl"
+              style={{ backgroundImage: `url('/images/bg/cta-bg.jpg')` }}>
+              <Space className="relative w-[115px] h-[115px] bg-[#113] p-10 rounded-full -top-28 left-20">
+                <Image
+                  alt=""
+                  width={195}
+                  height={195}
+                  src="/images/cta-icon2.png"
+                />
+              </Space>
+              <div>
+                <p className="text-white text-4xl font-medium">
+                  We’re Delivering the best customer Experience
+                </p>
+                <Link href={"#"}>
+                  <Space className="w-60 h-[64px] bg-gradient-to-tr from-white to-white rounded-lg flex-row flex justify-center items-center absolute right-[100px] top-[110px]">
+                    <Text
+                      style={{
+                        color: "#000",
+                        fontWeight: "bold",
+                        fontSize: 24,
+                      }}>
+                      07089915606
+                    </Text>
+                  </Space>
+                </Link>
+              </div>
             </Space>
           )}
           <Flex

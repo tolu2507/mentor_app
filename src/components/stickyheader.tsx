@@ -20,7 +20,7 @@ export default function StickyHeader({
   return (
     <Space
       direction="horizontal"
-      className="bg-white px-28 py-6 w-screen flex flex-row justify-center items-center fixed top-0 z-20 no-scrollbar shadow-md">
+      className="bg-white px-28 py-4 w-screen flex flex-row justify-center items-center fixed top-0 z-20 no-scrollbar shadow-md">
       <Space
         direction="horizontal"
         className="bg-white w-[1350px] flex flex-row justify-between items-center">

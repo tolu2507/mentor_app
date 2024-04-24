@@ -9,23 +9,9 @@ export default function MetricsSection() {
   const [isHovered, setIsHovered] = useState("");
 
   return (
-    <Space className="bg-[#f6f6f6] w-screen h-full relative no-scrollbar">
-      <Image
-        src={"/linebackground.png"}
-        width={400}
-        height={400}
-        alt={""}
-        quality={100}
-        className=" absolute top-0 -left-10 "
-      />
-      <Image
-        src={"/linebackground.png"}
-        width={400}
-        height={400}
-        alt={""}
-        quality={100}
-        className=" absolute bottom-0 -right-10 "
-      />
+    <Space
+      className="bg-[#f6f6f6] w-screen h-full relative no-scrollbar"
+      style={{ backgroundImage: `url('/images/bg/choose-us-bg.jpg')` }}>
       <Space className=" w-screen h-full relative top-0 left-0 bg-opacity-80 flex flex-row justify-center items-center pb-20">
         <Space direction="vertical" className="w-[1300px]">
           <Flex className=" w-[100%] bg-white shadow-sm border-2 h-64 relative -top-32 grid grid-cols-3 divide-x">

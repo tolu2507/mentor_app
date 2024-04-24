@@ -4,7 +4,7 @@ import { Space } from "antd";
 
 export default function ExpertContact() {
   return (
-    <Space className="bg-white w-[100%] p-32 relative no-scrollbar flex flex-row justify-center items-center">
+    <Space className="bg-white p-32 relative no-scrollbar flex flex-row justify-center items-center w-screen">
       <Space direction="vertical" className="w-[1300px] ">
         <ContactFlex />
         <Form />

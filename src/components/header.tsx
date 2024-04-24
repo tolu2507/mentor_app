@@ -11,11 +11,10 @@ export default function HomeHeader() {
       direction="vertical"
       className="bg-white w-[100%] h-screen relative no-scrollbar">
       <Image
-        src={"/background.jpeg"}
-        width={300}
-        height={300}
+        src={"/som1.jpg"}
+        fill
         alt={""}
-        className=" w-screen h-screen"
+        className=" "
         quality={100}
       />
       <Space

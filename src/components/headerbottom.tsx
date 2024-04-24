@@ -5,15 +5,16 @@ import Link from "next/link";
 
 export default function HeaderBottom() {
   return (
-    <Space className="bg-[#003] w-screen h-[500px] relative no-scrollbar">
-      <Image src={"/headerbottom.png"} fill alt={""} quality={100} />
+    <Space
+      style={{ backgroundImage: `url('/images/bg/service-bg3.jpg')` }}
+      className=" w-screen h-[500px] relative no-scrollbar">
       <Space className="bg-[#003] w-screen h-[500px] absolute px-28 top-0 left-0 bg-opacity-80 flex flex-row justify-center items-center">
         <Flex className="w-[1300px]">
           {headerbottomcard.map(({ title, icon, description }) => (
             <Card
               key={title}
               style={{
-                width: 350,
+                width: 280,
                 position: "relative",
                 top: -100,
                 padding: 12,
@@ -23,8 +24,8 @@ export default function HeaderBottom() {
               <Flex vertical gap={20}>
                 <Image
                   src={icon}
-                  width={50}
-                  height={50}
+                  width={30}
+                  height={30}
                   className="object-contain"
                   alt={""}
                   quality={100}
