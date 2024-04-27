@@ -1,9 +1,8 @@
 import Footer from "@/components/footer";
-import StickyHeader from "@/components/stickyheader";
-import { expertStickyConstant } from "@/constant/stickyconstant";
+import StickyHeaderNav from "@/components/headernav";
 import { Space } from "antd";
 
-export default function ExpertLayout({
+export default function WhyusLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -12,12 +11,12 @@ export default function ExpertLayout({
   return (
     <section>
       <Space direction="vertical" className="relative no-scrollbar">
-        <StickyHeader logo="/mentor.svg" data={expertStickyConstant} />
+        <StickyHeaderNav logo="/logo.png" />
         {children}
         <Footer
-          aux={false}
-          show={false}
-          logo="/mentorlogo.png"
+          aux={true}
+          show={true}
+          logo="/texcwhiz.png"
           light={false}
           url={url}
         />

@@ -14,7 +14,13 @@ export interface StickyHead {
   path: string;
 }
 
-export default function StickyHeaderNav({ logo }: { logo: string }) {
+export default function StickyHeaderNav({
+  logo,
+  color,
+}: {
+  logo: string;
+  color?: boolean;
+}) {
   return (
     <Space
       direction="horizontal"
@@ -44,7 +50,7 @@ export default function StickyHeaderNav({ logo }: { logo: string }) {
         {/* button part */}
         <Space className="space-x-2">
           <Space className="space-x-2">
-            <Badge className="" color="blue" count={0} showZero>
+            <Badge className="" color={color?'orange':'blue'} count={0} showZero>
               <ShoppingCartOutlined className="text-2xl" />
             </Badge>
             <SearchOutlined
@@ -54,7 +60,12 @@ export default function StickyHeaderNav({ logo }: { logo: string }) {
             />
           </Space>
           <Link href={"/authenthecation"}>
-            <Space className="w-48 h-12 bg-gradient-to-tr from-blue-400 via-blue-500 to-blue-600 rounded-lg flex-row flex justify-center items-center">
+            <Space
+              className={
+                color
+                  ? "w-48 h-12 bg-[#f54] rounded-lg flex-row flex justify-center items-center"
+                  : "w-48 h-12 bg-gradient-to-tr from-blue-400 via-blue-500 to-blue-600 rounded-lg flex-row flex justify-center items-center"
+              }>
               <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 20 }}>
                 Get Started
               </Text>

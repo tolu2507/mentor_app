@@ -14,7 +14,7 @@ export default function HomeHeader() {
         src={"/som1.jpg"}
         fill
         alt={""}
-        className=" "
+        className=" object-cover"
         quality={100}
       />
       <Space

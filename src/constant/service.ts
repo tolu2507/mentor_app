@@ -22,6 +22,58 @@ export const itemone = [
     desc: description,
   },
 ];
+export const itemthree = [
+  {
+    icon: "/images/ser-icon1.png",
+    title: "Custom Software Solution",
+    desc: description,
+    up: false,
+  },
+  {
+    icon: "/images/ser-icon2.png",
+    title: "Business Technology Solution",
+    desc: description,
+    up: true,
+  },
+  {
+    icon: "/images/ser-icon3.png",
+    title: "Recovery & IT Security",
+    desc: description,
+    up: false,
+  },
+  {
+    icon: "/images/ser-icon4.png",
+    title: "Idea Generate and Solution",
+    desc: description,
+    up: true,
+  },
+];
+export const itemfour = [
+  {
+    icon: "",
+    title: "Web Development",
+    desc: description,
+    up: false,
+  },
+  {
+    icon: "",
+    title: "Mobile App Development",
+    desc: description,
+    up: true,
+  },
+  {
+    icon: "",
+    title: "SoftWare Innovation",
+    desc: description,
+    up: false,
+  },
+  {
+    icon: "",
+    title: "App Management System",
+    desc: description,
+    up: true,
+  },
+];
 export const itemtwo = [
   {
     icon: "/counter.png",

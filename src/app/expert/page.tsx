@@ -5,17 +5,20 @@ import { team } from "@/constant/stickyconstant";
 import { Flex, Space } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ExpertPage() {
+  const router = useRouter();
   const [isHovered, setIsHovered] = useState("");
   return (
     <>
-      <ExpertHeader path={"/woman.jpeg"} topic={"Our Mentors"} />
+      <ExpertHeader path={"/men.png"} topic={"Our Mentors"} />
       <Space className="bg-white w-[100%] p-32 relative no-scrollbar flex flex-row justify-center items-center">
         <Flex gap={20} className=" w-[1300px] h-[474px]">
           {team.map(({ image, title, desc, socials, descs }) => (
             <div
+              onClick={() => router.push(`/expert/${title.surname}`)}
               key={title.name}
               className="relative h-[100%] w-[417px]"
               onMouseEnter={() => setIsHovered(title.name)}

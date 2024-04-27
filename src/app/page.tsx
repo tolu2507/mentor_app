@@ -36,6 +36,7 @@ export default function Home() {
       name: "Amina T.",
     },
   ];
+    const url = "/images/bg/footer-bg.jpg";
   return (
     <Space
       direction="vertical"
@@ -54,7 +55,13 @@ export default function Home() {
         <Space className="w-[100%] flex-row justify-center pb-20">
           <Sponsors />
         </Space>
-        <Footer aux={false} show={true} logo="/mentorlogo.png" />
+        <Footer
+          aux={false}
+          show={true}
+          logo="/mentorlogo.png"
+          light={false}
+          url={url}
+        />
       </Space>
     </Space>
   );

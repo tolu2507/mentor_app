@@ -2,7 +2,7 @@ import Footer from "@/components/footer";
 import StickyHeaderNav from "@/components/headernav";
 import { Space } from "antd";
 
-export default function WhyusLayout({
+export default function AboutLayout({
   children,
 }: {
   children: React.ReactNode;

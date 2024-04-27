@@ -1,7 +1,13 @@
 import { Flex } from "antd";
 import Image from "next/image";
 
-export default function MakeEnquiry({ full }: { full?: boolean }) {
+export default function MakeEnquiry({
+  full,
+  image,
+}: {
+  full?: boolean;
+  image?: string;
+}) {
   return (
     <Flex
       gap={30}
@@ -9,7 +15,9 @@ export default function MakeEnquiry({ full }: { full?: boolean }) {
       className={`${
         full ? "w-screen" : "w-[1300px] rounded-2xl -bottom-40 z-10"
       } px-40 py-28 object-cover relative`}
-      style={{ backgroundImage: `url('/images/bg/cta-bg5.jpg')` }}>
+      style={{
+        backgroundImage: `url(${image ? image : "/images/bg/cta-bg5.jpg"})`,
+      }}>
       <Flex className=" flex-1" gap={30}>
         <div className=" bg-gradient-to-b from-blue-400 to-fuchsia-700 w-2 h-[100%]" />
         <p className=" text-white text-[40px] leading-10 font-medium">

@@ -67,24 +67,23 @@ export const services = [
   "Outsourcing",
   "Networking",
 ];
-export const information = [
-  { text: "+234 708 991 5606", image: "/phone.jpeg" },
-  { text: "info@mentor.ng", image: "/mail.jpeg" },
-];
+export const information = ["+234 708 991 5606", "info@mentor.ng"];
 
 export const team = [
   {
-    image: "/som22.jpg",
+    image: "/sammy.jpeg",
     title: { name: "EZE", surname: "Samuel" },
     desc: "CEO, Criset Technology",
     socials: [1, 2, 3, 4],
-    descs: "Our platform provides a safe and supportive environment for mentors to share their knowledge and experiences with mentees. Whether you're a seasoned professional, an entrepreneur, or an expert in a specific field, you can make a meaningful impact on someone's journey.",
+    descs:
+      "Our platform provides a safe and supportive environment for mentors to share their knowledge and experiences with mentees. Whether you're a seasoned professional, an entrepreneur, or an expert in a specific field, you can make a meaningful impact on someone's journey.",
   },
   {
-    image: "/som22.jpg",
+    image: "/sammy.jpeg",
     title: { name: "Otutubuike", surname: "Ahyke" },
     desc: "Co-founder, luxyprime real estate",
     socials: [1, 2, 3],
-    descs: "Our platform provides a safe and supportive environment for mentors to share their knowledge and experiences with mentees. Whether you're a seasoned professional, an entrepreneur, or an expert in a specific field, you can make a meaningful impact on someone's journey.",
+    descs:
+      "Our platform provides a safe and supportive environment for mentors to share their knowledge and experiences with mentees. Whether you're a seasoned professional, an entrepreneur, or an expert in a specific field, you can make a meaningful impact on someone's journey.",
   },
 ];

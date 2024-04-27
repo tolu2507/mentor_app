@@ -1,23 +1,22 @@
 import Footer from "@/components/footer";
-import StickyHeader from "@/components/stickyheader";
-import { expertStickyConstant } from "@/constant/stickyconstant";
+import StickyHeaderNav from "@/components/headernav";
 import { Space } from "antd";
 
-export default function ExpertLayout({
+export default function CyberSecurityLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const url = "/images/bg/footer-bg.jpg";
+  let url = "/images/bg/footer-bg.jpg";
   return (
     <section>
       <Space direction="vertical" className="relative no-scrollbar">
-        <StickyHeader logo="/mentor.svg" data={expertStickyConstant} />
+        <StickyHeaderNav logo="/logo.png" />
         {children}
         <Footer
-          aux={false}
+          aux={true}
           show={false}
-          logo="/mentorlogo.png"
+          logo="/texcwhiz.png"
           light={false}
           url={url}
         />

@@ -2,12 +2,12 @@ import Footer from "@/components/footer";
 import StickyHeaderNav from "@/components/headernav";
 import { Space } from "antd";
 
-export default function WhyusLayout({
+export default function CyberSecurityLayout({
   children,
 }: {
   children: React.ReactNode;
-  }) {
-    const url = "/images/bg/footer-bg.jpg";
+}) {
+  let url = "/images/bg/footer-bg3.jpg";
   return (
     <section>
       <Space direction="vertical" className="relative no-scrollbar">
@@ -15,9 +15,9 @@ export default function WhyusLayout({
         {children}
         <Footer
           aux={true}
-          show={true}
+          show={false}
           logo="/texcwhiz.png"
-          light={false}
+          light={true}
           url={url}
         />
       </Space>

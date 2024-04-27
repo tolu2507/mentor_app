@@ -7,12 +7,19 @@ export default function ContactsLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const url = "/images/bg/footer-bg.jpg";
   return (
     <section>
       <Space direction="vertical" className="relative no-scrollbar">
         <StickyHeaderNav logo="/logo.png" />
         {children}
-        <Footer aux={true} show={false} logo="/texcwhiz.png" />
+        <Footer
+          aux={true}
+          show={false}
+          logo="/texcwhiz.png"
+          light={false}
+          url={url}
+        />
       </Space>
     </section>
   );

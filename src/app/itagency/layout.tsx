@@ -2,23 +2,24 @@ import Footer from "@/components/footer";
 import StickyHeaderNav from "@/components/headernav";
 import { Space } from "antd";
 
-export default function WhyusLayout({
+export default function ItAgencyLayout({
   children,
 }: {
   children: React.ReactNode;
-  }) {
-    const url = "/images/bg/footer-bg.jpg";
+}) {
+  let url = "/images/bg/footer-bg2.jpg";
   return (
     <section>
       <Space direction="vertical" className="relative no-scrollbar">
-        <StickyHeaderNav logo="/logo.png" />
+        <StickyHeaderNav logo="/logo.png" color={true} />
         {children}
         <Footer
           aux={true}
           show={true}
-          logo="/texcwhiz.png"
+          logo="/images/logo-2.png"
           light={false}
           url={url}
+          orange={true}
         />
       </Space>
     </section>

@@ -12,15 +12,18 @@ export default function ExpertHeader({
   return (
     <Space
       direction="vertical"
-      className="w-screen h-[590px] relative no-scrollbar object-cover"
-      style={{ backgroundImage: `url('/images/bg/page-banner.jpg')` }}>
+      className="w-screen h-[590px] relative no-scrollbar object-cover bg-no-repeat">
+      <Image
+        className="object-cover"
+        src={path ? path : "/images/bg/page-banner.jpg"}
+        alt={""}
+        fill
+        quality={100}
+      />
       <Space
         direction="vertical"
         className=" absolute top-0 w-[100%] h-[100%] overflow-hidden px-28 no-scrollbar">
-        <Flex
-          justify="center"
-          align="center"
-          className="w-[100%] h-[590px]">
+        <Flex justify="center" align="center" className="w-[100%] h-[590px]">
           <Space direction="vertical" className="space-y-7 z-50">
             <p className="text-center text-white text-7xl font-medium">
               {topic}

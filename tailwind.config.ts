@@ -8,9 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "spin-slow": "spin 80s linear infinite",
+        "bounce-slow": "bounce 20s linear infinite",
+      },
       container: {
         center: true,
-      }
+      },
     },
   },
   plugins: [],
