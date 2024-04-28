@@ -26,7 +26,7 @@ export default function Footer({
   return (
     <Space
       style={{ backgroundImage: `url(${url})` }}
-      className="w-screen h-full relative no-scrollbar bg-white">
+      className="w-screen h-full relative no-scrollbar bg-[#001]">
       <Space
         direction="vertical"
         className=" w-screen h-full relative top-0 left-0 bg-opacity-80 flex flex-row justify-center items-center">

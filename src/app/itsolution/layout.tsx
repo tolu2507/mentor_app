@@ -16,7 +16,7 @@ export default function CyberSecurityLayout({
         <Footer
           aux={true}
           show={false}
-          logo="/texcwhiz.png"
+          logo="/images/logo.png"
           light={true}
           url={url}
         />
