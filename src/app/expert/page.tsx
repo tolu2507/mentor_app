@@ -14,16 +14,18 @@ export default function ExpertPage() {
   return (
     <>
       <ExpertHeader path={"/men.png"} topic={"Our Mentors"} />
-      <Space className="bg-white w-[100%] p-32 relative no-scrollbar flex flex-row justify-center items-center">
-        <Flex gap={20} className=" w-[1300px] h-[474px]">
+      <Space className="bg-white lg:w-[100%] w-screen lg:p-32 relative no-scrollbar flex flex-row justify-center items-center">
+        <Flex
+          gap={20}
+          className=" lg:w-[1300px] lg:h-[474px] w-screen flex lg:flex-row flex-col p-5">
           {team.map(({ image, title, desc, socials, descs }) => (
             <div
               onClick={() => router.push(`/expert/${title.surname}`)}
               key={title.name}
-              className="relative h-[100%] w-[417px]"
+              className="relative lg:h-[100%] h-[470px] lg:w-[417px] w-[100%]"
               onMouseEnter={() => setIsHovered(title.name)}
               onMouseLeave={() => setIsHovered("")}>
-              <div className="absolute left-0 top-0 bg-gradient-to-b from-transparent to-black w-[417px] h-[100%] z-10 rounded-3xl overflow-hidden p-10">
+              <div className="absolute left-0 top-0 bg-gradient-to-b from-transparent to-black lg:w-[417px] w-[100%] h-[100%] z-10 rounded-3xl overflow-hidden p-10">
                 <div
                   className={`space-y-5 absolute p-10 bottom-0 left-0 bg-black bg-opacity-0 text-white transition-transform duration-500 ${
                     isHovered === title.name

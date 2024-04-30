@@ -13,41 +13,48 @@ export default function MakeRequest({ color }: { color?: boolean }) {
     {
       amount: "Contact Number",
       text: "+00(1) 123 456 7890",
-      icon: <PhoneTwoTone className="text-6xl text-black" />,
+      icon: <PhoneTwoTone className="lg:text-6xl text-3xl text-black" />,
     },
     {
       amount: "Our Mail",
       text: "infotechmax@ourmail.com",
-      icon: <MailTwoTone className="text-6xl" />,
+      icon: <MailTwoTone className="lg:text-6xl text-3xl" />,
     },
     {
       amount: "Our Location",
       text: "New ipsum dolor amet, eiusmod adipisicing 147 New Yors, NY Adipisicing 123",
-      icon: <PhoneTwoTone className="text-6xl" />,
+      icon: <PhoneTwoTone className="lg:text-6xl text-3xl" />,
     },
   ];
 
   return (
-    <Flex className="relative py-44 px-20" justify="center" align="center">
+    <Flex
+      className="relative lg:py-44 py-10 lg:px-20 px-5 w-screen"
+      justify="center"
+      align="center">
       <Image alt="" src="/images/shape/contact-shape.png" fill />
-      <Flex className="z-10" gap={30}>
-        <Space className="flex w-[450px] flex-col" direction="vertical">
-          <div className="text-black text-[50px] leading-[70px] font-medium">
+      <Flex
+        className="z-10 w-[100%] justify-center items-center flex-col lg:flex-row"
+        gap={30}>
+        <Space
+          className="flex lg:w-[450px] w-[100%] flex-col"
+          direction="vertical">
+          <div className="text-black lg:text-[50px] text-3xl lg:text-left text-center lg:leading-[70px] font-medium">
             To make requests for further information, contact us
           </div>
-          <Flex vertical gap={30} className="mt-16">
+          <Flex vertical className="lg:mt-16 mt-4 lg:gap-7 gap-3">
             {completed.map(({ amount, icon, text }) => (
               <Flex key={amount} className="" gap={20} align="center">
                 {icon}
-                <div className="text-black text-2xl font-bold">
+                <div className="text-black lg:text-2xl font-bold">
                   {amount}
-                  <p className="font-normal text-lg">{text}</p>
+                  <p className="font-normal lg:text-lg">{text}</p>
                 </div>
               </Flex>
             ))}
           </Flex>
         </Space>
-        <Space className="w-[500px] bg-white shadow-md rounded-3xl p-10 flex flex-row">
+        <Space className="lg:w-[500px] w-[100%] bg-white lg:shadow-md lg:rounded-3xl lg:p-10 flex flex-row">
           <Space direction="vertical" className="space-y-10 w-[100%]">
             <Space
               direction="vertical"

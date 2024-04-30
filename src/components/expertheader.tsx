@@ -22,13 +22,13 @@ export default function ExpertHeader({
       />
       <Space
         direction="vertical"
-        className=" absolute top-0 w-[100%] h-[100%] overflow-hidden px-28 no-scrollbar">
+        className=" absolute top-0 w-[100%] h-[100%] overflow-hidden lg:px-28 px-5 no-scrollbar">
         <Flex justify="center" align="center" className="w-[100%] h-[590px]">
-          <Space direction="vertical" className="space-y-7 z-50">
-            <p className="text-center text-white text-7xl font-medium">
+          <Space direction="vertical" className="lg:space-y-7 z-50">
+            <p className="text-center text-white lg:text-7xl text-3xl font-medium">
               {topic}
             </p>
-            <p className="text-center text-white text-xl font-normal ">
+            <p className="text-center text-white lg:text-xl font-normal ">
               <Link
                 href={"/"}
                 className="text-center text-white hover:text-blue-400">

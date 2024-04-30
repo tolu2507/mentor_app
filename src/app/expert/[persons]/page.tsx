@@ -15,7 +15,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
       <Flex
         justify="center"
         align="center"
-        className="w-screen bg-white py-5 px-20">
+        className="w-screen bg-white py-5 lg:px-20 px-5">
         <Flex vertical gap={30} className="w-[820px]">
           <div>
             <div>
@@ -98,7 +98,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
                       url="https://calendly.com/tolulopebamisile/30min"
                       styles={{
                         height: 780,
-                        width: 400,
+                        width: 360,
                         borderRadius: 10,
                         boxShadow: " 0 4px 8px 0 rgba(0, 0, 0, 0.2)",
                       }}

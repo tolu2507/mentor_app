@@ -8,6 +8,7 @@ import StickyHeader from "@/components/stickyheader";
 import { stickConstant } from "@/constant/stickyconstant";
 import TestimonialsContent from "@/components/testimonials";
 import Sponsors from "@/components/sponsors";
+import StickyHeaderNav from "@/components/headernav";
 
 export default function Home() {
   const objects = [
@@ -36,13 +37,17 @@ export default function Home() {
       name: "Amina T.",
     },
   ];
-    const url = "/images/bg/footer-bg.jpg";
+  const url = "/images/bg/footer-bg.jpg";
   return (
-    <Space
-      direction="vertical"
-      className=" w-screen bg-white relative flex-1 -space-y-10 flex-row justify-center items-center">
-      <Space direction="vertical" className="relative no-scrollbar">
-        <StickyHeader data={stickConstant} logo={"mentor.svg"} />
+    <div className=" w-screen bg-white relative flex-1 flex-row justify-center items-center">
+      <div className="relative no-scrollbar w-screen flex flex-col ">
+        <StickyHeaderNav
+          logo={"mentor.svg"}
+          data={stickConstant}
+          show={false}
+          link="/expert"
+          title="Find an expert"
+        />
         <HomeHeader />
         <HeaderBottom />
         <ConsultSection />
@@ -52,9 +57,9 @@ export default function Home() {
           description={"satisfied clients Nationwide"}
           show={false}
         />
-        <Space className="w-[100%] flex-row justify-center pb-20">
+        <div className="w-screen hidden lg:flex flex-row justify-center lg:pb-20 pb-5">
           <Sponsors />
-        </Space>
+        </div>
         <Footer
           aux={false}
           show={true}
@@ -62,7 +67,7 @@ export default function Home() {
           light={false}
           url={url}
         />
-      </Space>
-    </Space>
+      </div>
+    </div>
   );
 }

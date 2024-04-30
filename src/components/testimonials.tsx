@@ -41,19 +41,24 @@ export default function TestimonialsContent({
             : `url('/images/bg/testi-bg3.jpg')`
           : "",
       }}
-      className="bg-white  w-screen px-32 py-32 space-y-8 relative no-scrollbar flex flex-col justify-center items-center">
+      className="bg-white  w-screen lg:px-32 lg:py-32 px-10 py-10 lg:space-y-8 relative no-scrollbar flex flex-col justify-center items-center">
       <TextWithTitleAndDescription
         title={"Testimonial"}
         description={description}
         dark={dark}
         color={color ? color : "text-[#17e]"}
       />
-      <Space className="w-[1300px] items-center justify-center flex flex-row mt-10">
+      <div className="lg:w-[1300px] w-screen items-center justify-center lg:flex hidden flex-row lg:mt-10 px-5">
         {data.map((item) => (
           <TestimonialCard dark={dark} key={item.name} item={item} />
         ))}
-      </Space>
-      <Flex align="center" justify="center" className="w-[100%] mt-10">
+      </div>
+      <div className="lg:hidden w-screen items-center space-y-2 justify-center flex flex-col lg:mt-10 mt-2 px-5">
+        {objects.map((item) => (
+          <TestimonialCard dark={dark} key={item.name} item={item} />
+        ))}
+      </div>
+      <div className="w-[100%] mt-10 lg:flex hidden flex-row items-center justify-center">
         <Space>
           {cicleCounter.map((item) => (
             <div
@@ -62,9 +67,9 @@ export default function TestimonialsContent({
                 setCurrent(item);
                 setData(objects.slice(item, item + 1));
               }}
-              className={`w-6 h-6 ${
+              className={`lg:w-6 lg:h-6 ${
                 item === current ? "border" : "border-0"
-              } border-black rounded-full justify-center items-center flex-row flex cursor-pointer`}>
+              } border-black rounded-full justify-center items-center divflex-row flex cursor-pointer`}>
               <div
                 className={`w-2 h-2 ${
                   current === item ? "bg-blue-700" : " bg-slate-400"
@@ -73,7 +78,7 @@ export default function TestimonialsContent({
             </div>
           ))}
         </Space>
-      </Flex>
+      </div>
     </Space>
   );
 }

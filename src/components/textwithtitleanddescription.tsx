@@ -20,13 +20,13 @@ export default function TextWithTitleAndDescription({
       <p
         className={`uppercase ${
           color ? color : "text-[#17e]"
-        } text-base font-medium text-center`}>
+        } lg:text-base text-sm font-medium text-center`}>
         {title}
       </p>
       <p
         className={`${
-          width ? "w-[600px]" : ""
-        } text-center text-5xl font-medium ${
+          width ? "lg:w-[600px] w-[100%]" : ""
+        } text-center lg:text-5xl text-2xl font-medium capitalize ${
           !dark ? "text-black" : "text-white"
         }`}>
         {description}

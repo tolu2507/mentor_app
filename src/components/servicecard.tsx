@@ -17,14 +17,14 @@ export default function ServiceCard({
 }) {
   return (
     <div
-      className={`flex-1  p-10 rounded-xl ${
+      className={`flex-1  lg:p-10 p-4 rounded-xl ${
         colored
           ? up
             ? "bg-white border-t-[12px] border-t-[#17e] shadow-md relative -top-10 hover:animate-bounce"
             : "bg-white border-t-[12px] border-t-[#17e] shadow-md relative hover:animate-bounce"
           : "border-2 bg-white"
       } `}>
-      <Flex vertical gap={24}>
+      <Flex className="lg:gap-6 flex-col gap-2">
         {icon !== "" ? (
           <Image
             src={icon}
@@ -35,14 +35,14 @@ export default function ServiceCard({
             quality={100}
           />
         ) : (
-          <div className=" bg-[#f54] w-[70px] h-[70px] rounded-full" />
+          <div className=" bg-[#f54] lg:w-[70px] lg:h-[70px] w-12 h-12 rounded-full" />
         )}
         <Link href="/service">
-          <h3 className=" text-black font-bold text-[24px] hover:text-blue-400">
+          <h3 className=" text-black font-bold lg:text-[24px] hover:text-blue-400">
             {title}
           </h3>
         </Link>
-        <p className=" leading-8 text-base text-black">{description}</p>
+        <p className=" lg:leading-8 lg:text-base text-sm text-black">{description}</p>
       </Flex>
     </div>
   );

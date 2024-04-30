@@ -15,6 +15,9 @@ const config: Config = {
       container: {
         center: true,
       },
+      screens: {
+        lg: "1100px",
+      },
     },
   },
   plugins: [],

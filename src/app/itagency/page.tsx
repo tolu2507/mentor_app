@@ -50,7 +50,10 @@ export default function SoftwarePage() {
 
   return (
     <Space direction="vertical" className=" bg-white w-screen">
-      <Flex vertical align="center" className="relative w-screen h-[1093px]">
+      <Flex
+        vertical
+        align="center"
+        className="relative w-screen lg:h-[1093px] py-2">
         <Image
           alt=""
           fill
@@ -60,22 +63,22 @@ export default function SoftwarePage() {
         <Flex
           vertical
           justify="center"
-          className="absolute w-screen h-[100%] bg-black/20 top-0 left-0 px-20 py-2">
-          <p className="text-2xl">
+          className="absolute w-screen h-[100%] bg-black/20 top-0 left-0 lg:px-20 px-5">
+          <p className="lg:text-2xl">
             We provide the most advance digital solution
           </p>
           <br />
-          <br />
-          <div className="border-l-8 border-l-[#f54] pl-10 text-[70px] w-[600px] leading-[85px] font-bold">
+          <br className="hidden lg:block" />
+          <div className="border-l-8 border-l-[#f54] lg:pl-10 pl-2 lg:text-[70px] text-lg lg:w-[600px] w-[100%] lg:leading-[85px] font-bold">
             Leading Software Development Studio & Agency
           </div>
           <br />
-          <br />
-          <div className="flex items-center gap-6">
+          <br className="hidden lg:block" />
+          <div className="flex items-center lg:gap-6 gap-2">
             <Link href="">
-              <div className="bg-white rounded-full h-[80px] w-[80px]" />
+              <div className="bg-white rounded-full lg:h-[80px] lg:w-[80px] h-[40px] w-[40px]" />
             </Link>
-            <p className="text-2xl font-medium">Watch Video</p>
+            <p className="lg:text-2xl font-medium">Watch Video</p>
           </div>
         </Flex>
         <Flex className="relative -bottom-[910px] left-0 w-screen h-[349px]">
@@ -83,19 +86,19 @@ export default function SoftwarePage() {
         </Flex>
       </Flex>
       <Flex
-        className="w-screen py-32 px-20 relative"
+        className="w-screen lg:py-32 lg:px-20 px-5 py-5 relative"
         justify="center"
         align="center"
         gap={120}>
-        <Flex gap={50} vertical className="w-[500px]">
+        <Flex className="lg:w-[500px] w-[100%] flex-col lg:gap-12 gap-5">
           <Flex vertical className="w-[100%]">
-            <p className="text-[#f54]  font-normal text-lg">WHO WE ARE</p>
+            <p className="text-[#f54]  font-normal lg:text-lg">WHO WE ARE</p>
             <br />
-            <p className="text-black  font-medium text-[50px] leading-[60px]">
+            <p className="text-black  font-medium lg:text-[50px] text-2xl lg:leading-[60px]">
               We run all kinds of software services that vow your success
             </p>
             <br />
-            <p className="text-black  font-thin text-lg leading-[30px]">
+            <p className="text-black  font-thin lg:text-lg lg:leading-[30px]">
               Accelerate innovation with world-class tech teams We’ll match you
               to an entire remote team of incredible freelance talent for all
               your software development needs.
@@ -105,35 +108,35 @@ export default function SoftwarePage() {
             <Flex
               justify="center"
               align="center"
-              className="rounded-lg bg-[#fff6f5] p-6"
+              className="rounded-lg bg-[#fff6f5] lg:p-6 p-3 flex-1 w-[100%]"
               gap={30}>
               <div className="relative"></div>
-              <p className="text-black text-lg  leading-[35px]">
+              <p className="text-black lg:text-lg  lg:leading-[35px]">
                 Accelerate innovation with world-class tech teams We’ll match
                 you to an entire remote.
               </p>
             </Flex>
-            <Flex gap={20}>
-              <div className="flex flex-col gap-3">
-                <div className="text-black font-medium text-lg">
+            <Flex gap={20} className="w-[100%]">
+              <div className="flex flex-1 flex-col gap-3">
+                <div className="text-black font-medium lg:text-lg text-base">
                   Expert Team
                 </div>
-                <p className="text-black font-normal text-base w-[250px]">
+                <p className="text-black font-normal lg:text-base text-sm lg:w-[250px] w-[100%]">
                   Accelerate innovation with world-class tech teams
                 </p>
               </div>
-              <div className="flex flex-col gap-3 ">
-                <div className="text-black font-medium text-lg">
+              <div className="flex flex-1 flex-col gap-2 ">
+                <div className="text-black font-medium lg:text-lg text-base">
                   Custom Code
                 </div>
-                <p className="text-black font-normal text-base w-[250px]">
+                <p className="text-black font-normal lg:text-base text-sm lg:w-[250px] w-[100%]">
                   Accelerate innovation with world-class tech teams
                 </p>
               </div>
             </Flex>
           </Flex>
         </Flex>
-        <Flex className="relative w-[515px] h-[636px] z-10 rounded-3xl">
+        <div className="hidden lg:flex relative w-[515px] h-[636px] z-10 rounded-3xl">
           <div className="absolute w-[100%] h-[100%] top-0 left-0">
             <Flex className="relative w-[515px] h-[636px] z-10 rounded-3xl">
               <Image
@@ -155,14 +158,13 @@ export default function SoftwarePage() {
             </Flex>
           </div>
           <div className="absolute -bottom-[12px] z-[5px] -right-10 w-[515px] h-[500px] bg-[#f54]" />
-        </Flex>
+        </div>
       </Flex>
       <Flex
         vertical
-        className="w-screen py-32 px-20 relative"
+        className="w-screen lg:py-32 py-10 lg:px-20 px-5 relative lg:gap-[120px] gap-5"
         justify="center"
-        align="center"
-        gap={120}>
+        align="center">
         <Image
           alt=""
           fill
@@ -181,7 +183,9 @@ export default function SoftwarePage() {
           justify="center"
           align="center"
           className="z-10">
-          <Flex gap={30} className="w-[1300px]" justify="space-between">
+          <Flex
+            className="lg:w-[1300px] w-[100%] lg:flex-row flex-col lg:gap-8 gap-3"
+            justify="space-between">
             {itemfour.map(({ icon, title, desc, up }) => (
               <ServiceCard
                 key={title}
@@ -193,13 +197,13 @@ export default function SoftwarePage() {
             ))}
           </Flex>
           <Flex
-            className="py-10 px-20 rounded-2xl w-[100%]"
+            className="lg:py-10 lg:px-20 rounded-2xl w-[100%]"
             justify="center"
             align="center">
-            <div className="text-center text-black text-lg font-thin">
+            <div className="text-center text-black lg:text-lg font-thin">
               Learn more about
               <Link
-                className="text-center text-[#f54] text-lg font-medium"
+                className="text-center text-[#f54] lg:text-lg font-medium"
                 href={"/service"}>
                 {"   More Services "}
               </Link>
@@ -209,22 +213,21 @@ export default function SoftwarePage() {
       </Flex>
       <Flex
         vertical
-        className="w-screen py-32 px-20 relative"
+        className="w-screen lg:py-32 py-10 lg:px-20 px-5 relative"
         justify="center"
         align="center"
         gap={20}>
         <Flex
-          gap={70}
           justify="space-between"
-          className="w-[1300px] pb-20 border-b">
-          <Flex gap={50} vertical className="flex-1">
+          className="lg:w-[1300px] flex-col lg:flex-row w-[100%] lg:pb-20 border-b lg:gap-[70px] gap-7">
+          <Flex vertical className="flex-1 lg:gap-12 gap-5">
             <Space className="w-full">
-              <p className="text-black text-5xl font-medium">
+              <p className="text-black lg:text-5xl text-3xl font-medium">
                 We have an experienced team of production and inspection
               </p>
             </Space>
-            <Flex gap={50} className="w-[100%]">
-              <p className="text-black text-[18px] font-light leading-loose w-4/4">
+            <Flex className="w-[100%] lg:gap-12 gap-5">
+              <p className="text-black lg:text-[18px] font-light leading-loose w-4/4">
                 Accelerate innovation with world-class tech teams We’ll match
                 you to an entire remote team of incredible freelance talent for
                 all your software development needs.
@@ -242,20 +245,20 @@ export default function SoftwarePage() {
               <p className="text-black font-normal text-sm">CEO, Techmax</p>
             </div>
           </Flex>
-          <Flex gap={10} vertical className="flex-1">
+          <Flex vertical className="flex-1 gap-3">
             <Flex gap={10} align="flex-end">
-              <div className="text-[#f54] font-bold text-[160px] leading-[120px]">
+              <div className="text-[#f54] font-bold lg:text-[160px] text-7xl lg:leading-[120px]">
                 25
               </div>
-              <div className="text-[#000] text-xl w-[130px] leading-[24px]">
+              <div className="text-[#000] lg:text-xl text-sm w-[130px] lg:leading-[24px]">
                 Years of experience on IT Services
               </div>
             </Flex>
             <br />
-            <br />
+            <br className="hidden lg:block" />
             {details.map((item) => (
               <Space key={item.name} direction="vertical" className="mb-5">
-                <p className="text-black text-lg leading-[10px] font-medium">
+                <p className="text-black lg:text-lg leading-[10px] font-medium">
                   {item.name}
                 </p>
                 <Progress

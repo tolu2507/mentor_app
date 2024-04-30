@@ -20,7 +20,7 @@ export default function FotterText({
         <p
           className={`${
             light ? "text-black" : "text-[#f8f8f8]"
-          } text-lg font-medium hover:text-blue-400`}>
+          } lg:text-lg text-sm leading-10 font-medium hover:text-blue-400`}>
           {texts!.text}
         </p>
       </Flex>
@@ -30,7 +30,7 @@ export default function FotterText({
       href={"#"}
       className={`${
         light ? "text-black" : " text-[#f8f8f8]"
-      } font-thin text-[16px]`}>
+      } font-normal leading-10 lg:text-[16px] text-sm`}>
       {text}
     </Link>
   );

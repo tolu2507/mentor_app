@@ -25,12 +25,12 @@ export default function Sponsors() {
     "/images/brand/brand-5.png",
   ];
   return (
-    <Space className="w-[1300px] space-x-5 overflow-scroll no-scrollbar">
+    <div className="lg:w-[1300px] hidden lg:flex flex-row w-screen space-x-5 overflow-scroll no-scrollbar">
       {images.map((image) => (
-        <div key={image} className="relative w-[120px] h-10">
+        <div key={image} className="relative lg:w-[120px] lg:h-10 w-16 h-5">
           <Image alt="" fill src={image} />
         </div>
       ))}
-    </Space>
+    </div>
   );
 }

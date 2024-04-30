@@ -32,9 +32,9 @@ export default function Footer({
         className=" w-screen h-full relative top-0 left-0 bg-opacity-80 flex flex-row justify-center items-center">
         <Space
           direction="vertical"
-          className={`w-[1300px] mb-20 ${!show ? "pt-20" : "pt-0"}`}>
+          className={`lg:w-[1300px] w-screen lg:mb-20 ${!show ? "pt-20" : "pt-0"}`}>
           {show && orange ? (
-            <Space className=" w-[100%] py-10  px-20 relative -top-20 bg-no-repeat bg-cover rounded-xl bg-[#f54]">
+            <div className="hidden lg:block w-[100%] py-10  px-20 relative -top-20 bg-no-repeat bg-cover rounded-xl bg-[#f54]">
               <Space className="absolute bg-black z-10 w-[115px] h-[115px] p-10 rounded-full -top-14 left-20">
                 <Image
                   alt=""
@@ -67,10 +67,10 @@ export default function Footer({
                   </Link>
                 </Flex>
               </Flex>
-            </Space>
+            </div>
           ) : (
-            <Space
-              className=" w-[100%] h-56 relative -top-20 bg-no-repeat bg-cover rounded-xl"
+            <div
+              className="hidden lg:block w-[100%] h-56 relative -top-20 bg-no-repeat bg-cover rounded-xl"
               style={{ backgroundImage: `url('/images/bg/cta-bg.jpg')` }}>
               <Space className="relative bg-black z-10 w-[115px] h-[115px] p-10 rounded-full -top-28 left-20">
                 <Image
@@ -97,14 +97,14 @@ export default function Footer({
                   </Space>
                 </Link>
               </div>
-            </Space>
+            </div>
           )}
           <Flex
             justify="space-between"
             gap={30}
-            className="w-[100%] overflow-hidden">
+            className="lg:w-[100%] w-screen flex flex-col px-5 lg:flex-row overflow-hidden">
             <Flex vertical gap={20} className="flex-1">
-              <Link href={"/"}>
+              <Link href={"/"} className="w-[200px] h-[200px] relative hidden lg:block">
                 <Image
                   src={logo}
                   width={200}
@@ -151,7 +151,7 @@ export default function Footer({
                 } text-2xl font-medium`}>
                 Useful Links
               </h2>
-              <Flex vertical className="leading-[40px]">
+              <Flex vertical className="leading-[50px]">
                 {useful.map((item) => (
                   <FotterText
                     key={item}
@@ -204,7 +204,7 @@ export default function Footer({
           direction="vertical"
           className={` w-screen flex flex-row justify-center items-center p-10 border-t`}>
           <p
-            className={`text-center text-base font-normal ${
+            className={`text-center lg:text-base text-sm font-normal ${
               light ? "text-black" : "text-white"
             }`}>
             © Copyrights 2022 techwix All rights reserved.

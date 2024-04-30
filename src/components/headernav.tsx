@@ -1,6 +1,10 @@
 "use client";
 
-import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import {
+  MenuOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
 import { Badge, Button, Divider, Flex, Space, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,17 +21,23 @@ export interface StickyHead {
 export default function StickyHeaderNav({
   logo,
   color,
+  show = true,
+  link,
+  title,
+  data,
 }: {
   logo: string;
   color?: boolean;
+  show?: boolean;
+  link?: string;
+  title?: string;
+  data?: StickyHead[];
 }) {
   return (
-    <Space
-      direction="horizontal"
-      className="bg-white px-28 py-6 w-screen flex flex-row justify-center items-center fixed top-0 z-20 no-scrollbar shadow-md">
-      <Space
-        direction="horizontal"
-        className="bg-white w-[1350px] flex flex-row justify-between items-center">
+    <div className="bg-white lg:px-28 px-5 py-6 w-screen flex flex-row justify-center items-center fixed top-0 z-20 no-scrollbar shadow-md">
+      <Flex
+        // direction="horizontal"
+        className="bg-white lg:w-[1350px] w-[100%] flex-1 flex flex-row justify-between items-center">
         <Link href="/">
           <Image
             src={logo}
@@ -39,27 +49,43 @@ export default function StickyHeaderNav({
           />
         </Link>
 
-        <Flex gap={60}>
-          <DropdownComponent title={"Home"} items={HomeDrop} />
-          <TextHelper path={"/about"} title={"About Us"} />
-          <DropdownComponent title={"Pages"} items={PagesDrop} />
-          <DropdownComponent title={"Blog"} items={BlogDrop} />
-          <TextHelper path={"/contact"} title={"Contact"} />
-        </Flex>
+        {!data ? (
+          <div className="hidden space-x-14 lg:flex flex-row justify-center items-center">
+            <DropdownComponent title={"Home"} items={HomeDrop} />
+            <TextHelper path={"/about"} title={"About Us"} />
+            <DropdownComponent title={"Pages"} items={PagesDrop} />
+            <DropdownComponent title={"Blog"} items={BlogDrop} />
+            <TextHelper path={"/contact"} title={"Contact"} />
+          </div>
+        ) : (
+          <div className="hidden space-x-14 lg:flex flex-row justify-center items-center">
+            {data?.map((item) => (
+              <TextHelper key={item.name} path={item.path} title={item.name} />
+            ))}
+          </div>
+        )}
 
         {/* button part */}
         <Space className="space-x-2">
-          <Space className="space-x-2">
-            <Badge className="" color={color?'orange':'blue'} count={0} showZero>
-              <ShoppingCartOutlined className="text-2xl" />
-            </Badge>
-            <SearchOutlined
-              onClick={() => console.log("hello world")}
-              className="text-2xl"
-              style={{ color: "#000" }}
-            />
-          </Space>
-          <Link href={"/authenthecation"}>
+          {show && (
+            <div className="space-x-2 hidden lg:block">
+              <Badge
+                className=" hidden"
+                color={color ? "orange" : "blue"}
+                count={0}
+                showZero>
+                <ShoppingCartOutlined className="text-2xl" />
+              </Badge>
+              <SearchOutlined
+                onClick={() => console.log("hello world")}
+                className="text-2xl"
+                style={{ color: "#000" }}
+              />
+            </div>
+          )}
+          <Link
+            href={link ? link : "/authenthecation"}
+            className="hidden lg:block">
             <Space
               className={
                 color
@@ -67,12 +93,17 @@ export default function StickyHeaderNav({
                   : "w-48 h-12 bg-gradient-to-tr from-blue-400 via-blue-500 to-blue-600 rounded-lg flex-row flex justify-center items-center"
               }>
               <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 20 }}>
-                Get Started
+                {title ? title : "Get Started"}
               </Text>
             </Space>
           </Link>
+          <div
+            className=" bg-[#17e] lg:hidden p-3 flex flex-row justify-center items-center rounded-lg cursor-pointer"
+            onClick={() => console.log("")}>
+            <MenuOutlined className="text-xl" />
+          </div>
         </Space>
-      </Space>
-    </Space>
+      </Flex>
+    </div>
   );
 }

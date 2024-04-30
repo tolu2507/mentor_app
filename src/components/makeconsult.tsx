@@ -10,21 +10,24 @@ export default function MakeEnquiry({
 }) {
   return (
     <Flex
-      gap={30}
-      justify="space-between"
       className={`${
         full ? "w-screen" : "w-[1300px] rounded-2xl -bottom-40 z-10"
-      } px-40 py-28 object-cover relative`}
+      } lg:px-40 px-5 py-10 lg:py-28 object-cover relative gap-7 lg:justify-between justify-center items-center flex-col lg:flex-row`}
       style={{
         backgroundImage: `url(${image ? image : "/images/bg/cta-bg5.jpg"})`,
       }}>
       <Flex className=" flex-1" gap={30}>
-        <div className=" bg-gradient-to-b from-blue-400 to-fuchsia-700 w-2 h-[100%]" />
-        <p className=" text-white text-[40px] leading-10 font-medium">
+        <div className=" bg-gradient-to-b from-blue-400 to-fuchsia-700 w-2 h-[100px] hidden lg:block" />
+        <p className=" text-white lg:text-[40px] lg:leading-10 text-xl font-medium text-center lg:text-left">
           To make requests for further information, contact us
         </p>
       </Flex>
-      <Flex vertical align="center" gap={5} className=" flex-1">
+      <Flex
+        vertical
+        align="center"
+        justify="center"
+        gap={5}
+        className=" flex-1">
         <Image
           src={"/images/cta-icon2.png"}
           width={60}

@@ -10,20 +10,20 @@ export default function Form() {
   };
 
   return (
-    <Space className="w-[100%] flex flex-row justify-center items-center ">
-      <Space className="w-[920px] bg-white shadow-2xl shadow-slate-400 rounded-3xl py-20 flex flex-row justify-center items-center relative top-48 z-10">
-        <Space direction="vertical" className="space-y-10">
+    <Space className="lg:w-[100%] w-screen flex flex-row justify-center items-center lg:mt-0 mt-10">
+      <Space className="lg:w-[920px] w-screen bg-white shadow-2xl shadow-slate-400 rounded-3xl lg:py-20 py-6 flex flex-row justify-center items-center relative lg:top-48 z-10">
+        <Space direction="vertical" className="lg:space-y-10">
           <Space
             direction="vertical"
-            className=" w-[100%] space-y-4 flex flex-col justify-center items-center">
-            <p className="uppercase text-blue-700 text-base font-medium text-center">
+            className=" w-[100%] lg:space-y-4 flex flex-col justify-center items-center mb-2">
+            <p className="uppercase text-blue-700 lg:text-base text-sm font-medium text-center">
               REQUEST A QUOTE
             </p>
-            <p className="text-center text-5xl font-medium text-black">
+            <p className="text-center lg:text-5xl text-3xl font-medium text-black">
               How May We Help You!
             </p>
           </Space>
-          <Space direction="vertical" className=" w-[100%] space-y-2 px-10">
+          <Space direction="vertical" className=" w-[100%] space-y-2 lg:px-10 px-5">
             <Flex gap={20}>
               <Input
                 placeholder="Name *"
@@ -53,10 +53,10 @@ export default function Form() {
               className="h-40"
             />
           </Space>
-          <Space className=" w-[920px] flex flex-row justify-center items-center">
+          <Space className=" lg:w-[920px] w-screen flex flex-row justify-center items-center mt-1-2">
             <button
               type="button"
-              className=" bg-gradient-to-tr from-blue-300 to-blue-700 py-4 w-[684px] rounded-xl">
+              className=" bg-gradient-to-tr from-blue-300 to-blue-700 py-4 lg:w-[684px] w-[300px] rounded-xl">
               Send message
             </button>
           </Space>

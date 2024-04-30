@@ -5,23 +5,19 @@ import Link from "next/link";
 
 export default function HeaderBottom() {
   return (
-    <Space
+    <div
       style={{ backgroundImage: `url('/images/bg/service-bg3.jpg')` }}
-      className=" w-screen h-[500px] relative no-scrollbar">
-      <Space className="bg-[#003] w-screen h-[500px] absolute px-28 top-0 left-0 bg-opacity-80 flex flex-row justify-center items-center">
-        <Flex className="w-[1300px]">
+      className=" w-screen lg:h-[500px] relative no-scrollbar">
+      <div className="bg-[#003] w-screen lg:h-[500px] lg:absolute py-10 lg:py-0 lg:px-28 px-5 lg:top-0 lg:left-0 bg-opacity-80 flex lg:flex-row flex:col justify-center items-center">
+        <div className="lg:w-[1300px] flex lg:flex-row flex-col gap-5">
           {headerbottomcard.map(({ title, icon, description }) => (
             <Card
               key={title}
+              className="lg:w-[280px] relative lg:-top-[100px] bg-white "
               style={{
-                width: 280,
-                position: "relative",
-                top: -100,
                 padding: 12,
-                marginRight: 30,
-                backgroundColor: "#fff",
               }}>
-              <Flex vertical gap={20}>
+              <div className="gap-4 flex flex-col ">
                 <Image
                   src={icon}
                   width={30}
@@ -36,11 +32,11 @@ export default function HeaderBottom() {
                   </h3>
                 </Link>
                 <p className=" leading-8 text-base">{description}</p>
-              </Flex>
+              </div>
             </Card>
           ))}
-        </Flex>
-      </Space>
-    </Space>
+        </div>
+      </div>
+    </div>
   );
 }
