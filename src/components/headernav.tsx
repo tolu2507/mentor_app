@@ -200,7 +200,7 @@ export default function StickyHeaderNav({
       </div>
       {shows && (
         <div className="absolute h-screen w-screen bg-black/30 lg:hidden left-0 -top-5 z-20">
-          <div className="bg-[#013] h-[100%] w-[70%] py-10 flex-col flex z-20 gap-16">
+          <div className="bg-[#001529] h-[100%] w-[70%] py-10 flex-col flex z-20 gap-16">
             <Flex justify="space-between" align="center" className="px-4">
               <Link href="/">
                 <Image
@@ -221,7 +221,7 @@ export default function StickyHeaderNav({
               <Menu
                 style={{ width: "100%", color: "white" }}
                 mode={"inline"}
-                theme={"#013"}
+                theme={"dark"}
                 items={usedDetails}
               />
             </Flex>
