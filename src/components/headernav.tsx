@@ -34,7 +34,7 @@ export default function StickyHeaderNav({
   data?: StickyHead[];
 }) {
   return (
-    <div className="bg-white lg:px-28 px-5 py-6 w-screen flex flex-row justify-center items-center fixed top-0 z-20 no-scrollbar shadow-md">
+    <div className="bg-white lg:px-28 px-4 py-4 w-screen flex flex-row justify-center items-center fixed top-0 z-20 no-scrollbar shadow-md">
       <Flex
         // direction="horizontal"
         className="bg-white lg:w-[1350px] w-[100%] flex-1 flex flex-row justify-between items-center">
@@ -98,9 +98,9 @@ export default function StickyHeaderNav({
             </Space>
           </Link>
           <div
-            className=" bg-[#17e] lg:hidden p-3 flex flex-row justify-center items-center rounded-lg cursor-pointer"
+            className=" bg-[#17e] lg:hidden p-2 flex flex-row justify-center items-center rounded-lg cursor-pointer"
             onClick={() => console.log("")}>
-            <MenuOutlined className="text-xl" />
+            <MenuOutlined className="text-base" />
           </div>
         </Space>
       </Flex>

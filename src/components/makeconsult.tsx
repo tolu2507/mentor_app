@@ -11,8 +11,8 @@ export default function MakeEnquiry({
   return (
     <Flex
       className={`${
-        full ? "w-screen" : "w-[1300px] rounded-2xl -bottom-40 z-10"
-      } lg:px-40 px-5 py-10 lg:py-28 object-cover relative gap-7 lg:justify-between justify-center items-center flex-col lg:flex-row`}
+        full ? "w-screen" : "lg:w-[1300px] w-[100%] rounded-2xl lg:-bottom-40 z-10"
+      } lg:px-40 px-5 py-5 lg:py-28 object-cover relative gap-7 lg:justify-between justify-center items-center flex-col lg:flex-row`}
       style={{
         backgroundImage: `url(${image ? image : "/images/bg/cta-bg5.jpg"})`,
       }}>

@@ -4,27 +4,24 @@ import ServiceCard from "./servicecard";
 
 export default function ServicesGridList() {
   return (
-    <Space direction="vertical" className="w-[1300px]  space-y-5 z-20">
-      <Flex gap={30} className="w-[100%]" justify="space-between">
-        {itemone.map(({ icon, title, desc }) => (
-          <ServiceCard
-            key={title}
-            icon={icon}
-            title={title}
-            description={desc}
-          />
-        ))}
-      </Flex>
-      <Flex gap={30} className="w-[100%]" justify="space-between">
-        {itemtwo.map(({ icon, title, desc }) => (
-          <ServiceCard
-            key={title}
-            icon={icon}
-            title={title}
-            description={desc}
-          />
-        ))}
-      </Flex>
-    </Space>
+    <Flex
+      vertical
+      className="lg:w-[1300px] px-5 w-screen gap-5 z-20 justify-center items-center">
+      {[itemone, itemtwo].map((item, index) => (
+        <Flex
+          key={index}
+          className="w-[100%] flex-col lg:flex-row gap-5 lg:gap-8"
+          justify="space-between">
+          {item.map(({ icon, title, desc }) => (
+            <ServiceCard
+              key={title}
+              icon={icon}
+              title={title}
+              description={desc}
+            />
+          ))}
+        </Flex>
+      ))}
+    </Flex>
   );
 }

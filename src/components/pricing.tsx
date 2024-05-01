@@ -14,9 +14,7 @@ export default function Pricing({ show = true }: { show?: boolean }) {
   ];
   const [setter, setSetter] = useState("Free");
   return (
-    <Flex
-      vertical
-      className="bg-white  w-[100%] lg:px-32 lg:py-32 px-5 py-10 gap-5 lg:gap-0 lg:space-y-20 relative no-scrollbar flex justify-center items-center">
+    <Flex className="bg-white  w-[100%] lg:px-32 lg:py-32 px-5 py-10 gap-5 lg:gap-0 lg:space-y-20 relative no-scrollbar flex flex-col justify-center items-center">
       <TextWithTitleAndDescription
         title={"pricing plans"}
         description={"Affordable pricing for all"}

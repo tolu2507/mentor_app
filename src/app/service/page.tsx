@@ -11,6 +11,7 @@ import TextWithTitleAndDescription from "@/components/textwithtitleanddescriptio
 import PricingList from "@/components/pricinglist";
 import Image from "next/image";
 import Sponsors from "@/components/sponsors";
+import Pricing from "@/components/pricing";
 
 export default function ServicePage() {
   const onChange: CheckboxProps["onChange"] = (e) => {
@@ -55,7 +56,7 @@ export default function ServicePage() {
       <ExpertHeader path={""} topic={"Our Services"} />
       <Space
         direction="vertical"
-        className="bg-white w-screen px-32 pt-32 pb-8 relative no-scrollbar flex flex-row justify-center items-center">
+        className="bg-white w-screen lg:px-32 lg:pt-32 pt-10 px-5 pb-8 relative no-scrollbar flex flex-row justify-center items-center">
         <ServicesGridList />
         <MakeEnquiry />
       </Space>
@@ -63,23 +64,7 @@ export default function ServicePage() {
         objects={objects}
         description={"20k+ satisfied clients worldwide"}
       />
-      <Space className="bg-white w-screen px-32 py-32 space-y-20 relative no-scrollbar flex flex-col justify-center">
-        <TextWithTitleAndDescription
-          title={"pricing plans"}
-          description={"Affordable pricing for all"}
-        />
-        <Flex gap={30} className="w-[1300px]">
-          {details.map((item) => (
-            <PricingList
-              key={item.name}
-              details={item}
-              setter={setter}
-              action={() => setSetter(item.name)}
-            />
-          ))}
-        </Flex>
-        <Sponsors />
-      </Space>
+      <Pricing show={true} />
     </>
   );
 }

@@ -17,7 +17,7 @@ export default function ServiceCard({
 }) {
   return (
     <div
-      className={` w-[100%]  lg:p-10 p-4 rounded-xl ${
+      className={`flex-1 w-[100%]  lg:p-10 p-4 rounded-xl ${
         colored
           ? up
             ? "bg-white border-t-[12px] border-t-[#17e] shadow-md relative lg:-top-10 hover:animate-bounce"
