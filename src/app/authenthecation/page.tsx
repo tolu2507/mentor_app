@@ -13,13 +13,15 @@ export default function AuthPage() {
   return (
     <>
       <ExpertHeader path={""} topic={"Login & Register"} />
-      <Space className="bg-white w-[100%] p-32 relative no-scrollbar flex flex-row justify-center items-center">
-        <Space direction="vertical" className="w-[1300px]">
-          <Flex gap={50} className="w-[100%]">
-            <div className="flex-1 border-2 rounded-3xl p-14 flex flex-row items-center justify-center">
-              <Space direction="vertical" className="w-[100%] space-y-5">
+      <Flex className="bg-white w-screen lg:p-32 p-5 relative no-scrollbar lg:flex lg:flex-row lg:justify-center lg:items-center">
+        <Flex className="lg:w-[1300px] w-[100%] flex-col">
+          <Flex className="w-[100%] flex-col lg:flex-row gap-6 lg:gap-[50px]">
+            <div className="flex-1 border-2 rounded-3xl lg:p-14 p-3 flex flex-row items-center justify-center">
+              <Flex vertical className="w-[100%] space-y-5">
                 <Space>
-                  <h1 className="text-black font-bold text-4xl">Login</h1>
+                  <h1 className="text-black font-bold lg:text-4xl text-xl">
+                    Login
+                  </h1>
                 </Space>
                 <Space direction="vertical" className="space-y-3 w-[100%]">
                   <Input
@@ -54,12 +56,14 @@ export default function AuthPage() {
                     {"Lost your password?"}
                   </Link>
                 </Space>
-              </Space>
+              </Flex>
             </div>
-            <div className="flex-1 border-2 rounded-3xl p-14 flex flex-row items-center justify-center">
+            <div className="flex-1 w-[100%] border-2 rounded-3xl lg:p-14 p-3 flex flex-row items-center justify-center">
               <Space direction="vertical" className="w-[100%] space-y-5">
                 <Space>
-                  <h1 className="text-black font-bold text-4xl">Register</h1>
+                  <h1 className="text-black font-bold lg:text-4xl text-xl">
+                    Register
+                  </h1>
                 </Space>
                 <Space direction="vertical" className="space-y-3 w-[100%]">
                   <Input
@@ -93,14 +97,14 @@ export default function AuthPage() {
                       color: "#fff",
                       fontWeight: "700",
                     }}>
-                    Login
+                    Register
                   </Button>
                 </Space>
               </Space>
             </div>
           </Flex>
-        </Space>
-      </Space>
+        </Flex>
+      </Flex>
     </>
   );
 }

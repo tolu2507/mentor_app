@@ -17,10 +17,10 @@ export default function ServiceCard({
 }) {
   return (
     <div
-      className={`flex-1  lg:p-10 p-4 rounded-xl ${
+      className={` w-[100%]  lg:p-10 p-4 rounded-xl ${
         colored
           ? up
-            ? "bg-white border-t-[12px] border-t-[#17e] shadow-md relative -top-10 hover:animate-bounce"
+            ? "bg-white border-t-[12px] border-t-[#17e] shadow-md relative lg:-top-10 hover:animate-bounce"
             : "bg-white border-t-[12px] border-t-[#17e] shadow-md relative hover:animate-bounce"
           : "border-2 bg-white"
       } `}>
@@ -42,7 +42,9 @@ export default function ServiceCard({
             {title}
           </h3>
         </Link>
-        <p className=" lg:leading-8 lg:text-base text-sm text-black">{description}</p>
+        <p className=" lg:leading-8 lg:text-base text-sm text-black">
+          {description}
+        </p>
       </Flex>
     </div>
   );

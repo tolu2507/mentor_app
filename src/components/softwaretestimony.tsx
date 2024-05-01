@@ -40,15 +40,17 @@ export default function SoftwareTestimonials({
             : `url('/images/bg/testi-bg3.jpg')`
           : "",
       }}
-      className="bg-white  w-screen space-y-8 relative no-scrollbar flex flex-col justify-center items-center">
+      className="bg-white  w-screen px-5 lg:space-y-8 relative no-scrollbar flex flex-col justify-center items-center">
       <TextWithTitleAndDescription
         title={"case studies"}
         description={description}
         dark={dark}
       />
-      <Space className="w-[1300px] items-center justify-center flex flex-row mt-10">
+      <Flex className="lg:w-[1300px] w-[100%] items-center justify-center gap-3 flex-col flex lg:flex-row mt-10">
         {data.map((item) => (
-          <Flex key={item} className="relative w-[411px] h-[292px] rounded-lg">
+          <Flex
+            key={item}
+            className="relative lg:w-[411px] w-[100%] h-[292px] rounded-lg">
             <Image alt="" fill src="/images/case-2.jpg" />
             <Flex
               vertical
@@ -66,7 +68,7 @@ export default function SoftwareTestimonials({
             </Flex>
           </Flex>
         ))}
-      </Space>
+      </Flex>
       <Flex align="center" justify="center" className="w-[100%] mt-10">
         <Space>
           {cicleCounter.map((item) => (

@@ -20,18 +20,18 @@ export default function PricingList({
     <Flex
       onClick={action}
       vertical
-      className={`flex-1 gap-16 ${
+      className={` w-[100%] gap-5 lg:gap-16 ${
         name === setter
           ? "bg-gradient-to-b from-blue-500 via-purple-700 to-purple-400"
           : " bg-gray-300"
-      } px-12 py-16 rounded-3xl relative overflow-hidden cursor-pointer`}>
+      } lg:px-12 px-5 py-10 lg:py-16 rounded-3xl relative overflow-hidden cursor-pointer`}>
       <div className="absolute w-96 h-96 rounded-full border-[30px] border-gray-100/20 -top-32 -right-40" />
       <div className="flex flex-col gap-5">
         <Space>
           <p
             className={`${
               name === setter ? "text-white" : "text-black"
-            } text-left text-3xl font-medium`}>
+            } text-left lg:text-3xl text-lg font-medium`}>
             {name}
           </p>
         </Space>
@@ -40,21 +40,21 @@ export default function PricingList({
             <div
               className={`${
                 name === setter ? "text-white" : " text-blue-600"
-              } text-base`}>
+              } lg:text-base text-sm`}>
               $
             </div>
           </div>
           <div
             className={` ${
               name === setter ? "text-white" : " text-blue-600"
-            } text-7xl font-semibold`}>
+            } lg:text-7xl text-5xl font-semibold`}>
             {price}
           </div>
           <div className="flex flex-col h-12 justify-end">
             <div
               className={`${
                 name === setter ? "text-white" : " text-gray-500"
-              } text-base`}>
+              } lg:text-base text-sm`}>
               / Month
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function PricingList({
             key={item}
             className={`${
               name === setter ? "text-white" : "text-black"
-            } text-lg`}>
+            } lg:text-lg text-sm`}>
             {item}
           </p>
         ))}
@@ -75,11 +75,12 @@ export default function PricingList({
         <Button
           className="w-[100%] border-none"
           style={{
-            height: 60,
+            height: 40,
             backgroundColor: " #3b82f6",
-            fontSize: 20,
+            fontSize: 16,
             color: "#fff",
             fontWeight: "700",
+            border: 0,
           }}>
           Try it Now
         </Button>

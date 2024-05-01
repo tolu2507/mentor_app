@@ -14,12 +14,14 @@ export default function Pricing({ show = true }: { show?: boolean }) {
   ];
   const [setter, setSetter] = useState("Free");
   return (
-    <Space className="bg-white w-screen px-32 py-32 space-y-20 relative no-scrollbar flex flex-col justify-center">
+    <Flex
+      vertical
+      className="bg-white  w-[100%] lg:px-32 lg:py-32 px-5 py-10 gap-5 lg:gap-0 lg:space-y-20 relative no-scrollbar flex justify-center items-center">
       <TextWithTitleAndDescription
         title={"pricing plans"}
         description={"Affordable pricing for all"}
       />
-      <Flex gap={30} className="w-[1300px]">
+      <Flex className="lg:w-[1300px] w-[100%] lg:gap-8 gap-5 flex-col lg:flex-row justify-center">
         {details.map((item) => (
           <PricingList
             key={item.name}
@@ -30,6 +32,6 @@ export default function Pricing({ show = true }: { show?: boolean }) {
         ))}
       </Flex>
       {show && <Sponsors />}
-    </Space>
+    </Flex>
   );
 }
