@@ -4,7 +4,7 @@ import Link from "next/link";
 export const HomeDrop: MenuProps["items"] = [
   {
     label: (
-      <Link href="/" className="text-lg">
+      <Link href="/" className="lg:text-lg text-white lg:text-black">
         Home Main
       </Link>
     ),
@@ -12,7 +12,7 @@ export const HomeDrop: MenuProps["items"] = [
   },
   {
     label: (
-      <Link href="/aisolution" className="text-lg">
+      <Link href="/aisolution" className="lg:text-lg text-white lg:text-black">
         AI Solutions
       </Link>
     ),
@@ -20,7 +20,7 @@ export const HomeDrop: MenuProps["items"] = [
   },
   {
     label: (
-      <Link href="/cybersecurity" className="text-lg">
+      <Link href="/cybersecurity" className="lg:text-lg text-white lg:text-black">
         Cyber Security
       </Link>
     ),
@@ -28,7 +28,7 @@ export const HomeDrop: MenuProps["items"] = [
   },
   {
     label: (
-      <Link href="/itsolution" className="text-lg">
+      <Link href="/itsolution" className="lg:text-lg text-white lg:text-black">
         IT Solutions
       </Link>
     ),
@@ -36,7 +36,7 @@ export const HomeDrop: MenuProps["items"] = [
   },
   {
     label: (
-      <Link href="/softwarecompany" className="text-lg">
+      <Link href="/softwarecompany" className="lg:text-lg text-white lg:text-black">
         Software Company
       </Link>
     ),
@@ -44,7 +44,7 @@ export const HomeDrop: MenuProps["items"] = [
   },
   {
     label: (
-      <Link href="/itagency" className="text-lg">
+      <Link href="/itagency" className="lg:text-lg text-white lg:text-black">
         IT Agency
       </Link>
     ),
@@ -54,42 +54,42 @@ export const HomeDrop: MenuProps["items"] = [
 
 export const PagesDrop: MenuProps["items"] = [
   {
-    label: <Link href="/expert" className="text-lg">Our Team</Link>,
+    label: <Link href="/expert" className="lg:text-lg text-white lg:text-black">Our Team</Link>,
     key: "0",
   },
   {
-    label: <Link href="/service" className="text-lg">Service</Link>,
+    label: <Link href="/service" className="lg:text-lg text-white lg:text-black">Service</Link>,
     key: "1",
   },
   {
-    label: <Link href="/whyus" className="text-lg">Why Choose Us</Link>,
+    label: <Link href="/whyus" className="lg:text-lg text-white lg:text-black">Why Choose Us</Link>,
     key: "2",
   },
   {
-    label: <Link href="/testimonials" className="text-lg">Testimonials</Link>,
+    label: <Link href="/testimonials" className="lg:text-lg text-white lg:text-black">Testimonials</Link>,
     key: "3",
   },
   {
-    label: <Link href="/pricing" className="text-lg">Pricing</Link>,
+    label: <Link href="/pricing" className="lg:text-lg text-white lg:text-black">Pricing</Link>,
     key: "4",
   },
   {
-    label: <Link href="/authenthecation" className="text-lg">Login & Register</Link>,
+    label: <Link href="/authenthecation" className="lg:text-lg text-white lg:text-black">Login & Register</Link>,
     key: "5",
   },
 ];
 
 export const BlogDrop: MenuProps["items"] = [
   {
-    label: <Link href="/bloggrid" className="text-lg">Blog Grid</Link>,
+    label: <Link href="/bloggrid" className="lg:text-lg text-white lg:text-black">Blog Grid</Link>,
     key: "0",
   },
   {
-    label: <Link href="/bloglist" className="text-lg">Blog List</Link>,
+    label: <Link href="/bloglist" className="lg:text-lg text-white lg:text-black">Blog List</Link>,
     key: "1",
   },
   {
-    label: <Link href="/blogsingle" className="text-lg">Blog Single</Link>,
+    label: <Link href="/blogsingle" className="lg:text-lg text-white lg:text-black">Blog Single</Link>,
     key: "2",
   },
 ];

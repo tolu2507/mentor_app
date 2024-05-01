@@ -24,7 +24,7 @@ export default function ExpertHeader({
         direction="vertical"
         className=" absolute top-0 w-[100%] h-[100%] overflow-hidden lg:px-28 px-5 no-scrollbar">
         <Flex justify="center" align="center" className="w-[100%] h-[590px]">
-          <Space direction="vertical" className="lg:space-y-7 z-50">
+          <Space direction="vertical" className="lg:space-y-7 z-10">
             <p className="text-center text-white lg:text-7xl text-3xl font-medium">
               {topic}
             </p>
