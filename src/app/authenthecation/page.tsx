@@ -5,8 +5,10 @@ import { Button, Flex, Input, Space, Checkbox } from "antd";
 import React from "react";
 import Link from "next/link";
 import type { CheckboxProps } from "antd";
+import { useRouter } from "next/navigation";
 
 export default function AuthPage() {
+  const router = useRouter();
   const onChange: CheckboxProps["onChange"] = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
@@ -41,6 +43,7 @@ export default function AuthPage() {
                 <Space direction="vertical" className="space-y-3 w-[100%]">
                   <Button
                     className="w-[100%] border-none"
+                    onClick={() => router.push("/")}
                     style={{
                       height: 60,
                       backgroundColor: " #3b82f6",
@@ -89,6 +92,7 @@ export default function AuthPage() {
                 </Space>
                 <Space direction="vertical" className="w-[100%]">
                   <Button
+                    onClick={() => router.push("/")}
                     className="w-[100%] border-none"
                     style={{
                       height: 60,
