@@ -24,17 +24,16 @@ export default function Footer({
   orange?: boolean;
 }) {
   return (
-    <Space
+    <div
       style={{ backgroundImage: `url(${url})` }}
-      className="w-screen h-full relative no-scrollbar bg-[#001]">
-      <Space
-        direction="vertical"
-        className=" w-screen h-full relative top-0 left-0 bg-opacity-80 flex flex-row justify-center items-center">
-        <Space
-          direction="vertical"
-          className={`lg:w-[1300px] w-screen lg:mb-20 ${!show ? "pt-20" : "pt-0"}`}>
+      className="w-screen h-full flex flex-row justify-center items-center relative no-scrollbar bg-[#001]">
+      <div className=" w-[100%] h-full relative bg-opacity-80 flex flex-col justify-center items-center">
+        <div
+          className={`lg:w-[1300px] w-screen lg:mb-20 ${
+            !show ? "py-5 lg:py-0" : "pt-0"
+          }`}>
           {show && orange ? (
-            <div className="hidden lg:block w-[100%] py-10  px-20 relative -top-20 bg-no-repeat bg-cover rounded-xl bg-[#f54]">
+            <div className="hidden lg:flex w-[100%] py-10  px-20 relative -top-20 bg-no-repeat bg-cover rounded-xl bg-[#f54] flex-row items-center">
               <Space className="absolute bg-black z-10 w-[115px] h-[115px] p-10 rounded-full -top-14 left-20">
                 <Image
                   alt=""
@@ -43,36 +42,30 @@ export default function Footer({
                   src="/images/subscribe-icon.png"
                 />
               </Space>
-              <Flex
-                justify="space-between"
-                align="center"
-                gap={20}
-                className="w-[900px]">
-                <p className="text-5xl font-medium w-[350px]">
-                  Subscribe to our newsletter
-                </p>
-                <Flex className="flex-1">
-                  <Input className="h-16 rounded-none" />
-                  <Link
-                    href={"/authenthecation"}
-                    className="w-[200px] h-16 bg-black flex-row flex justify-center items-center">
-                    <Text
-                      style={{
-                        color: "#fff",
-                        fontWeight: "bold",
-                        fontSize: 20,
-                      }}>
-                      Subscribe
-                    </Text>
-                  </Link>
-                </Flex>
+              <p className="text-5xl font-medium w-[350px]">
+                Subscribe to our newsletter
+              </p>
+              <Flex className="flex-1">
+                <Input className="h-16 rounded-none" />
+                <Link
+                  href={"/authenthecation"}
+                  className="w-[200px] h-16 bg-black flex-row flex justify-center items-center">
+                  <Text
+                    style={{
+                      color: "#fff",
+                      fontWeight: "bold",
+                      fontSize: 20,
+                    }}>
+                    Subscribe
+                  </Text>
+                </Link>
               </Flex>
             </div>
           ) : (
             <div
-              className="hidden lg:block w-[100%] h-56 relative -top-20 bg-no-repeat bg-cover rounded-xl"
+              className="lg:block hidden relative -top-20 bg-no-repeat bg-cover rounded-xl p-10"
               style={{ backgroundImage: `url('/images/bg/cta-bg.jpg')` }}>
-              <Space className="relative bg-black z-10 w-[115px] h-[115px] p-10 rounded-full -top-28 left-20">
+              <Space className="absolute bg-black z-10 w-[115px] h-[115px] p-10 rounded-full -top-16 left-20">
                 <Image
                   alt=""
                   width={195}
@@ -80,31 +73,23 @@ export default function Footer({
                   src="/images/cta-icon2.png"
                 />
               </Space>
-              <div>
-                <p className="text-white text-4xl font-medium">
+              <div className="w-[100%] flex flex-row justify-between items-center">
+                <div className="text-white text-4xl font-medium capitalize">
                   We’re Delivering the best customer Experience
-                </p>
-                <Link href={"#"}>
-                  <Space className="w-60 h-[64px] bg-gradient-to-tr from-white to-white rounded-lg flex-row flex justify-center items-center absolute right-[100px] top-[110px]">
-                    <Text
-                      style={{
-                        color: "#000",
-                        fontWeight: "bold",
-                        fontSize: 24,
-                      }}>
-                      07089915606
-                    </Text>
-                  </Space>
+                </div>
+                <Link
+                  href={"#"}
+                  className="w-60 h-[64px] bg-gradient-to-tr from-white to-white rounded-lg flex-row flex justify-center items-center text-[24px] font-medium text-black">
+                  07089915606
                 </Link>
               </div>
             </div>
           )}
           <Flex
             justify="space-between"
-            gap={30}
-            className="lg:w-[100%] w-screen flex flex-col px-5 lg:flex-row overflow-hidden">
+            className="lg:w-[100%] lg:gap-8 gap-5 w-screen flex flex-col px-5 lg:flex-row overflow-hidden">
             <Flex vertical gap={20} className="flex-1">
-              <Link href={"/"} className="w-[200px] h-[200px] relative hidden lg:block">
+              <Link href={"/"} className="relative hidden lg:block">
                 <Image
                   src={logo}
                   width={200}
@@ -113,11 +98,20 @@ export default function Footer({
                   alt=""
                 />
               </Link>
+              <Link href={"/"} className="relative lg:hidden">
+                <Image
+                  src={logo}
+                  width={150}
+                  height={100}
+                  className="object-cover"
+                  alt=""
+                />
+              </Link>
               {aux ? (
                 <p
                   className={`${
                     light ? "text-black" : "text-white"
-                  } text-base font-normal leading-loose`}>
+                  } lg:text-base text-sm font-normal leading-loose`}>
                   Accelerate innovation with world- <br /> class tech teams
                   We’ll match you
                   <br /> to an entire remote team of
@@ -144,14 +138,14 @@ export default function Footer({
                 </Link>
               </div>
             </Flex>
-            <Flex vertical gap={30} className="flex-1">
+            <Flex vertical className="flex-1 lg:gap-8 gap-3">
               <h2
                 className={`${
                   light ? "text-black" : "text-white"
-                } text-2xl font-medium`}>
+                } lg:text-2xl text-lg font-medium`}>
                 Useful Links
               </h2>
-              <Flex vertical className="leading-[50px]">
+              <Flex vertical className=" lg:leading-[50px] leading-[20px]">
                 {useful.map((item) => (
                   <FotterText
                     key={item}
@@ -162,14 +156,14 @@ export default function Footer({
                 ))}
               </Flex>
             </Flex>
-            <Flex vertical gap={30} className="flex-1">
+            <Flex vertical className="flex-1 lg:gap-8 gap-3">
               <h2
                 className={`${
                   light ? "text-black" : "text-white"
-                } text-2xl font-medium`}>
+                } lg:text-2xl text-lg font-medium`}>
                 Our Services
               </h2>
-              <Flex vertical className="leading-[40px]">
+              <Flex vertical className="lg:leading-[50px] leading-[20px]">
                 {services.map((item) => (
                   <FotterText
                     key={item}
@@ -180,14 +174,14 @@ export default function Footer({
                 ))}
               </Flex>
             </Flex>
-            <Flex vertical gap={30} className="flex-1">
+            <Flex vertical className="flex-1 lg:gap-8 gap-3">
               <h2
                 className={`${
                   light ? "text-black" : "text-white"
-                } text-2xl font-medium`}>
+                } lg:text-2xl text-lg font-medium`}>
                 Contact Information
               </h2>
-              <Flex vertical className="leading-[40px]">
+              <Flex vertical className="lg:leading-[50px] leading-[20px]">
                 {information.map((item) => (
                   <FotterText
                     key={item}
@@ -199,18 +193,19 @@ export default function Footer({
               </Flex>
             </Flex>
           </Flex>
-        </Space>
-        <Space
-          direction="vertical"
-          className={` w-screen flex flex-row justify-center items-center p-10 border-t`}>
+        </div>
+        <Flex
+          justify="center"
+          align="center"
+          className={` w-screen lg:p-10 p-5 border-t`}>
           <p
             className={`text-center lg:text-base text-sm font-normal ${
               light ? "text-black" : "text-white"
             }`}>
             © Copyrights 2022 techwix All rights reserved.
           </p>
-        </Space>
-      </Space>
-    </Space>
+        </Flex>
+      </div>
+    </div>
   );
 }

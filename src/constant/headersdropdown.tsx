@@ -81,15 +81,15 @@ export const PagesDrop: MenuProps["items"] = [
 
 export const BlogDrop: MenuProps["items"] = [
   {
-    label: <Link href="/bloggrid" className="lg:text-lg text-white lg:text-black">Blog Grid</Link>,
+    label: <Link href="/blog" className="lg:text-lg text-white lg:text-black">Blog Grid</Link>,
     key: "0",
   },
   {
-    label: <Link href="/bloglist" className="lg:text-lg text-white lg:text-black">Blog List</Link>,
+    label: <Link href="/blog/list" className="lg:text-lg text-white lg:text-black">Blog List</Link>,
     key: "1",
   },
   {
-    label: <Link href="/blogsingle" className="lg:text-lg text-white lg:text-black">Blog Single</Link>,
+    label: <Link href="/blog/single" className="lg:text-lg text-white lg:text-black">Blog Single</Link>,
     key: "2",
   },
 ];

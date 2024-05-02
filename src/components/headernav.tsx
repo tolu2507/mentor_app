@@ -113,7 +113,7 @@ export default function StickyHeaderNav({
   const usedDetails: MenuItem[] = data ? createMenuArray(data) : items;
 
   return (
-    <div className="relative">
+    <div className="">
       <div className="bg-white lg:px-28 px-4 py-4 w-screen flex flex-row justify-center items-center fixed top-0 z-20 no-scrollbar shadow-md">
         <Flex className="bg-white lg:w-[1350px] w-[100%] flex-1 flex flex-row justify-between items-center">
           <Link href="/" className="hidden lg:block">
@@ -141,8 +141,8 @@ export default function StickyHeaderNav({
             <div className="hidden space-x-14 lg:flex flex-row justify-center items-center">
               <DropdownComponent title={"Home"} items={HomeDrop} />
               <TextHelper path={"/about"} title={"About Us"} />
-              {/* <DropdownComponent title={"Pages"} items={PagesDrop} /> */}
-              <DropdownComponent title={"Blog"} items={BlogDrop} />
+              <DropdownComponent title={"Pages"} items={PagesDrop} />
+              {/* <DropdownComponent title={"Blog"} items={BlogDrop} /> */}
               <TextHelper path={"/contact"} title={"Contact"} />
             </div>
           ) : (
@@ -199,8 +199,10 @@ export default function StickyHeaderNav({
         </Flex>
       </div>
       {shows && (
-        <div className="absolute h-screen w-screen bg-black/30 lg:hidden left-0 -top-5 z-20">
-          <div className="bg-[#001529] h-[100%] w-[70%] py-10 flex-col flex z-20 gap-16">
+        <div
+          onClick={() => setShows(false)}
+          className="absolute h-screen w-screen bg-black/40 lg:hidden left-0 -top-4 z-20">
+          <div className="bg-[#001529] h-[100%] w-[70%] px-4 py-10 flex-col flex z-20 gap-16">
             <Flex justify="space-between" align="center" className="px-4">
               <Link href="/">
                 <Image
@@ -221,7 +223,7 @@ export default function StickyHeaderNav({
               <Menu
                 style={{ width: "100%", color: "white" }}
                 mode={"inline"}
-                theme={"dark"}
+                theme="dark"
                 items={usedDetails}
               />
             </Flex>
