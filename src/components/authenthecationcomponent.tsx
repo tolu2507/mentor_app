@@ -12,6 +12,7 @@ import { BASEURL } from "@/constant/baseurl";
 export default function AuthComponent() {
   const router = useRouter();
   const url = `${BASEURL}/api/auth`;
+  console.log(url);
   const onChange: CheckboxProps["onChange"] = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };

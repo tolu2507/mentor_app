@@ -26,6 +26,7 @@ export default function Form() {
   };
 
   async function handleInsertMessages() {
+    console.log(url);
     setLoading(true);
     try {
       let response = await fetch(url, {

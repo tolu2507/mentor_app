@@ -46,6 +46,7 @@ export default function MakeRequest({ color }: { color?: boolean }) {
   ];
 
   async function handleInsertMessages() {
+    console.log(url);
     setLoading(true);
     try {
       let response = await fetch(url, {

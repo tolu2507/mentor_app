@@ -29,6 +29,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
 
   async function handleInsertConsultation() {
     console.log(params.persons);
+    console.log(url);
     setLoading(true);
     try {
       let response = await fetch(url, {
