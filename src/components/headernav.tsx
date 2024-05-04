@@ -87,17 +87,17 @@ export default function StickyHeaderNav({
       ),
       children: PagesDrop,
     },
-    // {
-    //   key: "sub4",
-    //   label: (
-    //     <Link
-    //       href={""}
-    //       className="text-white text-lg font-medium hover:text-[#17e]">
-    //       Blog
-    //     </Link>
-    //   ),
-    //   children: BlogDrop,
-    // },
+    {
+      key: "sub4",
+      label: (
+        <Link
+          href={""}
+          className="text-white text-lg font-medium hover:text-[#17e]">
+          Blog
+        </Link>
+      ),
+      children: BlogDrop,
+    },
     {
       key: "sub5",
       label: (
@@ -142,7 +142,7 @@ export default function StickyHeaderNav({
               <DropdownComponent title={"Home"} items={HomeDrop} />
               <TextHelper path={"/about"} title={"About Us"} />
               <DropdownComponent title={"Pages"} items={PagesDrop} />
-              {/* <DropdownComponent title={"Blog"} items={BlogDrop} /> */}
+              <DropdownComponent title={"Blog"} items={BlogDrop} />
               <TextHelper path={"/contact"} title={"Contact"} />
             </div>
           ) : (

@@ -10,7 +10,7 @@ import TestimonialsContent from "@/components/testimonials";
 import Sponsors from "@/components/sponsors";
 import StickyHeaderNav from "@/components/headernav";
 
-export default function Home() {
+export default async function Home() {
   const objects = [
     {
       text: "Mentors.ng has been my guiding light as I embarked on my writing journey. The mentor I connected with provided constructive feedback on my work, shared writing techniques, and encouraged me to explore new genres. Their mentorship gave me the confidence to pursue my passion for writing.",

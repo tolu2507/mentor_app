@@ -1,21 +1,71 @@
 "use client";
 
+import { ConsultationTypes } from "@/app/api/types";
 /* eslint-disable react/no-unescaped-entities */
 import ExpertHeader from "@/components/expertheader";
 import { Button, Flex, Input, Space } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { InlineWidget } from "react-calendly";
+import Loading from "../../../components/loading";
+import { BASEURL } from "@/constant/baseurl";
 
 export default function Persons({ params }: { params: { persons: string } }) {
+  const url = `${BASEURL}/api/consultation`;
+  const router = useRouter();
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [consultation, setConsultation] = useState<ConsultationTypes>({
+    name: "",
+    email: "",
+    consultation_type: "",
+    consultation_date: "",
+    minutes: "",
+    price: 0,
+    additional_information: "",
+    mentor_name: params.persons.toString(),
+  });
+
+  async function handleInsertConsultation() {
+    console.log(params.persons);
+    setLoading(true);
+    try {
+      let response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(consultation),
+      });
+      if (response.ok) {
+        let data = await response.json();
+        console.log("this is the data returned ", data);
+        if (data.status === 201) {
+          setConsultation({
+            name: "",
+            email: "",
+            consultation_type: "",
+            consultation_date: "",
+            minutes: "",
+            price: 0,
+            additional_information: "",
+            mentor_name: params.persons.toString(),
+          });
+          // router.push(`/expert/${params.persons}`);
+        }
+      }
+    } catch (error) {
+      console.log("this is the error that is making the code to faul ", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
-    <div className="flex flex-col bg-white w-screen">
+    <div className="flex flex-col bg-white w-screen relative">
       <ExpertHeader path={"/sammy.jpeg"} topic={"Our Mentors"} />
       <Flex
         justify="center"
         align="center"
-        className="w-screen bg-white py-5 lg:px-20 px-5">
+        className="w-screen bg-white py-5 lg:px-20 px-5 lg:pb-24">
         <Flex vertical gap={30} className="w-[820px]">
           <div>
             <div>
@@ -72,11 +122,32 @@ export default function Persons({ params }: { params: { persons: string } }) {
                 Book a Consultation
               </h2>
               <Space direction="vertical" className="space-y-3 w-[100%] mt-5">
-                <Input placeholder="Name" className="h-14 rounded-none" />
-                <Input placeholder="Email" className="h-14 rounded-none" />
+                <Input
+                  placeholder="Name"
+                  className="h-14 rounded-none"
+                  value={consultation.name}
+                  onChange={(e) =>
+                    setConsultation({ ...consultation, name: e.target.value })
+                  }
+                />
+                <Input
+                  placeholder="Email"
+                  className="h-14 rounded-none"
+                  value={consultation.email}
+                  onChange={(e) =>
+                    setConsultation({ ...consultation, email: e.target.value })
+                  }
+                />
                 <Input
                   placeholder="Consultation Type"
                   className=" h-14 rounded-none"
+                  value={consultation.consultation_type}
+                  onChange={(e) =>
+                    setConsultation({
+                      ...consultation,
+                      consultation_type: e.target.value,
+                    })
+                  }
                 />
                 <div className=" cursor-pointer">
                   <p className="text-gray-300 mb-1">Consultation Date</p>
@@ -108,18 +179,37 @@ export default function Persons({ params }: { params: { persons: string } }) {
                 <Input
                   placeholder="Select Time (Minutes)"
                   className=" h-14 rounded-none"
+                  value={consultation.minutes}
+                  onChange={(e) =>
+                    setConsultation({
+                      ...consultation,
+                      minutes: e.target.value,
+                    })
+                  }
                 />
                 <Input
                   placeholder="Price (NGN)"
                   className=" h-14 rounded-none"
+                  value={consultation.price}
+                  onChange={(e) =>
+                    setConsultation({ ...consultation, price: +e.target.value })
+                  }
                 />
                 <Input
                   placeholder="Addition Information"
                   className=" h-14 rounded-none"
+                  value={consultation.additional_information}
+                  onChange={(e) =>
+                    setConsultation({
+                      ...consultation,
+                      additional_information: e.target.value,
+                    })
+                  }
                 />
                 <br />
                 <Button
-                  className="w-[250px] border-none"
+                  onClick={handleInsertConsultation}
+                  className="w-[250px] border-none hover:bg-black"
                   style={{
                     height: 60,
                     backgroundColor: " #3b82f6",
@@ -136,6 +226,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
           </div>
         </Flex>
       </Flex>
+      {loading && <Loading />}
     </div>
   );
 }
