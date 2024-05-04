@@ -3,7 +3,7 @@ import { ConsultationTypes } from "../types";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 
-export async function GET(response: Response) {
+export async function GET(request: Request, response: Response) {
   const supabase = createClient(cookies());
   try {
     let { data: Consultation, error } = await supabase
@@ -36,8 +36,8 @@ export async function POST(request: Request, response: Response) {
     const { data, error } = await supabase
       .from("Consultation")
       .insert([dataToBeInserted])
-        .select();
-      
+      .select();
+
     if (error) {
       return NextResponse.json({
         status: 401,

@@ -3,7 +3,7 @@ import { MessagesTypes } from "../types";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 
-export async function GET(response: Response) {
+export async function GET(request: Request, response: Response) {
   const supabase = createClient(cookies());
   try {
     let { data: Consultation, error } = await supabase
