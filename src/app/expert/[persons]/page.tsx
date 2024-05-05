@@ -1,12 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { ConsultationTypes } from "@/app/api/types";
 /* eslint-disable react/no-unescaped-entities */
 import ExpertHeader from "@/components/expertheader";
-import { Button, Flex, Input, Space } from "antd";
+import {
+  Button,
+  DatePicker,
+  DatePickerProps,
+  Flex,
+  Input,
+  InputNumber,
+  Popover,
+  Space,
+} from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InlineWidget } from "react-calendly";
 import Loading from "../../../components/loading";
 import { BASEURL } from "@/constant/baseurl";
@@ -15,6 +25,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
   const url = `${BASEURL}/api/consultation`;
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const [dropdown, setShowDropdown] = useState(false);
   const [loading, setLoading] = useState(false);
   const [consultation, setConsultation] = useState<ConsultationTypes>({
     name: "",
@@ -26,6 +37,12 @@ export default function Persons({ params }: { params: { persons: string } }) {
     additional_information: "",
     mentor_name: params.persons.toString(),
   });
+  const [calender, setCalender] = useState<any>("");
+  const onChange: DatePickerProps["onChange"] = (date, dateString) => {
+    console.log(date);
+    console.log(dateString, consultation.minutes);
+    setCalender(dateString);
+  };
 
   async function handleInsertConsultation() {
     console.log(params.persons);
@@ -59,6 +76,34 @@ export default function Persons({ params }: { params: { persons: string } }) {
       setLoading(false);
     }
   }
+  const consult = [
+    "Text Consultation",
+    "Video Consultation",
+    "Live Consultation",
+  ];
+  function getPrice(prices: number) {
+    const price =
+      +consultation.minutes <= 90
+        ? prices
+        : +consultation.minutes > 90 && +consultation.minutes <= 180
+        ? prices + prices
+        : prices + prices + prices;
+
+    return price;
+  }
+
+  useEffect(() => {
+    if (consultation.consultation_type === "Text Consultation") {
+      const price = getPrice(22500);
+      setConsultation({ ...consultation, price: price });
+    } else if (consultation.consultation_type === "Video Consultation") {
+      const price = getPrice(27000);
+      setConsultation({ ...consultation, price: price });
+    } else {
+      const price = getPrice(30150);
+      setConsultation({ ...consultation, price: price });
+    }
+  }, [consultation.consultation_type, consultation.minutes]);
 
   return (
     <div className="flex flex-col bg-white w-screen relative">
@@ -139,25 +184,64 @@ export default function Persons({ params }: { params: { persons: string } }) {
                     setConsultation({ ...consultation, email: e.target.value })
                   }
                 />
-                <Input
-                  placeholder="Consultation Type"
-                  className=" h-14 rounded-none"
-                  value={consultation.consultation_type}
-                  onChange={(e) =>
-                    setConsultation({
-                      ...consultation,
-                      consultation_type: e.target.value,
-                    })
-                  }
-                />
-                <div className=" cursor-pointer">
+
+                <div className="relative">
+                  <p className="text-gray-300 mb-1">Consultation Type</p>
+
+                  <Flex
+                    onClick={() => setShowDropdown(!dropdown)}
+                    align="center"
+                    justify="space-between"
+                    className="w-[100%] border cursor-pointer h-14 px-3 rounded-lg mb-2  hover:border-[#17e]">
+                    <div className="text-black capitalize">
+                      {consultation.consultation_type}
+                    </div>
+                  </Flex>
+
+                  {dropdown && (
+                    <div className="absolute w-[100%] top-24 left-0 border gap-3 flex flex-col shadow-md shadow-black p-3 rounded-lg bg-white z-10">
+                      {consult.map((item) => (
+                        <div
+                          key={item}
+                          onClick={() =>
+                            setConsultation({
+                              ...consultation,
+                              consultation_type: item,
+                            })
+                          }
+                          className={`cursor-pointer ${
+                            item === consultation.consultation_type
+                              ? "text-white bg-black rounded-lg py-3"
+                              : "text-black bg-white"
+                          } px-3`}>
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div>
                   <p className="text-gray-300 mb-1">Consultation Date</p>
+                  <DatePicker
+                    format={{
+                      format: "YYYY-MM-DD HH:mm:ss",
+                      type: "mask",
+                    }}
+                    onChange={onChange}
+                    style={{ width: "100%", height: 64 }}
+                  />
+                </div>
+                <div className=" cursor-pointer">
                   <Flex
                     onClick={() => setShow(!show)}
                     align="center"
                     justify="space-between"
                     className="w-[100%] border  h-14 px-3 rounded-lg mb-2  hover:border-[#17e]">
-                    <div className="text-black">dd/mm/yyyy</div>
+                    <div className="text-black capitalize">
+                      Click to Select Date and Time (P.S. the date has been
+                      picked)
+                    </div>
                     <Image
                       src="/calendar.jpeg"
                       width={20}
@@ -170,21 +254,27 @@ export default function Persons({ params }: { params: { persons: string } }) {
                       url="https://calendly.com/tolulopebamisile/30min"
                       styles={{
                         height: 780,
-                        width: 360,
+                        width: "100%",
                         borderRadius: 10,
                         boxShadow: " 0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                      }}
+                      prefill={{
+                        email: consultation.email,
+                        name: consultation.name,
+                        date: new Date(calender),
                       }}
                     />
                   )}
                 </div>
-                <Input
+                <InputNumber
                   placeholder="Select Time (Minutes)"
-                  className=" h-14 rounded-none"
+                  className=" rounded-none"
+                  style={{ width: "100%", paddingTop: 10, paddingBottom: 10 }}
                   value={consultation.minutes}
                   onChange={(e) =>
                     setConsultation({
                       ...consultation,
-                      minutes: e.target.value,
+                      minutes: e ? e : "",
                     })
                   }
                 />
