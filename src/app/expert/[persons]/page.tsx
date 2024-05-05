@@ -30,9 +30,9 @@ export default function Persons({ params }: { params: { persons: string } }) {
   const [consultation, setConsultation] = useState<ConsultationTypes>({
     name: "",
     email: "",
-    consultation_type: "",
+    consultation_type: "Text Consultation",
     consultation_date: "",
-    minutes: "",
+    minutes: "0",
     price: 0,
     additional_information: "",
     mentor_name: params.persons.toString(),
