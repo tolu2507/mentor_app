@@ -118,6 +118,10 @@ export default function Persons({ params }: { params: { persons: string } }) {
       console.log("response: ", response);
       if (response.payRef) {
         setPay(!pay);
+        setConsultation({
+          ...consultation,
+          additional_information: response.payRef.toString(),
+        });
       }
     },
   };
