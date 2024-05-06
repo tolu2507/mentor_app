@@ -18,7 +18,8 @@
     "next": "14.2.1",
     "react": "^18",
     "react-calendly": "^4.3.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-interswitch": "^1.0.8"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",

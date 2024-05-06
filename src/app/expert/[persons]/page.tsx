@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 import { InlineWidget } from "react-calendly";
 import Loading from "../../../components/loading";
 import { BASEURL } from "@/constant/baseurl";
+import { InterswitchPay } from "react-interswitch";
 
 export default function Persons({ params }: { params: { persons: string } }) {
   const url = `${BASEURL}/api/consultation`;
@@ -37,6 +38,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
     additional_information: "",
     mentor_name: params.persons.toString(),
   });
+  const [pay, setPay] = useState(false);
   const [calender, setCalender] = useState<any>("");
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     console.log(date);
@@ -60,14 +62,16 @@ export default function Persons({ params }: { params: { persons: string } }) {
           setConsultation({
             name: "",
             email: "",
-            consultation_type: "",
+            consultation_type: "Text Consultation",
             consultation_date: "",
             minutes: "",
             price: 0,
             additional_information: "",
             mentor_name: params.persons.toString(),
           });
-          // router.push(`/expert/${params.persons}`);
+          setPay(false);
+          setCalender("");
+          router.push(`/expert`);
         }
       }
     } catch (error) {
@@ -91,6 +95,32 @@ export default function Persons({ params }: { params: { persons: string } }) {
 
     return price;
   }
+  let total = +consultation.price * 100;
+
+  const paymentParameters = {
+    merchantCode: process.env.NEXT_PUBLIC_MERCHANTCODE!,
+    payItemID: process.env.NEXT_PUBLIC_PAYITEMID!,
+    customerEmail: "tolulopebamisile@gmail.com",
+    redirectURL: process.env.NEXT_PUBLIC_BASEURL!,
+    text: `Pay  N${consultation.price}  Now`,
+    mode: process.env.NEXT_PUBLIC_MODE!,
+    transactionReference: Date.now().toString(),
+    amount: `${total}`,
+    style: {
+      width: "200px",
+      height: "40px",
+      border: "none",
+      color: "#fff",
+      backgroundColor: "#17e",
+      borderRadius: 10,
+    },
+    callback: (response: any) => {
+      console.log("response: ", response);
+      if (response.payRef) {
+        setPay(!pay);
+      }
+    },
+  };
 
   useEffect(() => {
     if (consultation.consultation_type === "Text Consultation") {
@@ -232,40 +262,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
                     style={{ width: "100%", height: 64 }}
                   />
                 </div>
-                <div className=" cursor-pointer">
-                  <Flex
-                    onClick={() => setShow(!show)}
-                    align="center"
-                    justify="space-between"
-                    className="w-[100%] border  h-14 px-3 rounded-lg mb-2  hover:border-[#17e]">
-                    <div className="text-black capitalize">
-                      Click to Select Date and Time (P.S. the date has been
-                      picked)
-                    </div>
-                    <Image
-                      src="/calendar.jpeg"
-                      width={20}
-                      height={20}
-                      alt="calendar"
-                    />
-                  </Flex>
-                  {show && (
-                    <InlineWidget
-                      url="https://calendly.com/tolulopebamisile/30min"
-                      styles={{
-                        height: 780,
-                        width: "100%",
-                        borderRadius: 10,
-                        boxShadow: " 0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                      }}
-                      prefill={{
-                        email: consultation.email,
-                        name: consultation.name,
-                        date: new Date(calender),
-                      }}
-                    />
-                  )}
-                </div>
+
                 <InputNumber
                   placeholder="Select Time (Minutes)"
                   className=" rounded-none"
@@ -286,6 +283,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
                     setConsultation({ ...consultation, price: +e.target.value })
                   }
                 />
+                {!pay && <InterswitchPay {...paymentParameters} />}
                 <Input
                   placeholder="Addition Information"
                   className=" h-14 rounded-none"
@@ -297,19 +295,58 @@ export default function Persons({ params }: { params: { persons: string } }) {
                     })
                   }
                 />
+                {pay && (
+                  <div className=" cursor-pointer">
+                    <Flex
+                      onClick={() => setShow(!show)}
+                      align="center"
+                      justify="space-between"
+                      className="w-[100%] border  h-14 px-3 rounded-lg mb-2  hover:border-[#17e]">
+                      <div className="text-black capitalize">
+                        Click to Select Date and Time (P.S. the date has been
+                        picked)
+                      </div>
+                      <Image
+                        src="/calendar.jpeg"
+                        width={20}
+                        height={20}
+                        alt="calendar"
+                      />
+                    </Flex>
+                    {show && (
+                      <InlineWidget
+                        url="https://calendly.com/tolulopebamisile/30min"
+                        styles={{
+                          height: 780,
+                          width: "100%",
+                          borderRadius: 10,
+                          boxShadow: " 0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                        }}
+                        prefill={{
+                          email: consultation.email,
+                          name: consultation.name,
+                          date: new Date(calender),
+                        }}
+                      />
+                    )}
+                  </div>
+                )}
                 <br />
                 <Button
+                  disabled={!pay}
                   onClick={handleInsertConsultation}
-                  className="w-[250px] border-none hover:bg-black"
+                  className="border-none  hover:bg-black"
                   style={{
                     height: 60,
-                    backgroundColor: " #3b82f6",
+                    backgroundColor: pay ? " #3b82f6" : "#888",
                     fontSize: 20,
                     color: "#fff",
                     fontWeight: "700",
                     border: 0,
+                    paddingRight: 40,
+                    paddingLeft: 40,
                   }}>
-                  Book Now
+                  {!pay ? "Please click the pay now button first" : "Book Now"}
                 </Button>
               </Space>
               <br />
