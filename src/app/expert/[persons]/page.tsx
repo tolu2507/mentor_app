@@ -262,7 +262,12 @@ export default function Persons({ params }: { params: { persons: string } }) {
                       format: "YYYY-MM-DD HH:mm:ss",
                       type: "mask",
                     }}
-                    onChange={onChange}
+                    onChange={(e) =>
+                      setConsultation({
+                        ...consultation,
+                        consultation_date: e,
+                      })
+                    }
                     style={{ width: "100%", height: 64 }}
                   />
                 </div>
