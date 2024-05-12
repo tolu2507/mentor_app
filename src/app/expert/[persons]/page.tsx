@@ -100,7 +100,7 @@ export default function Persons({ params }: { params: { persons: string } }) {
   const paymentParameters = {
     merchantCode: process.env.NEXT_PUBLIC_MERCHANTCODE!,
     payItemID: process.env.NEXT_PUBLIC_PAYITEMID!,
-    customerEmail: "tolulopebamisile@gmail.com",
+    customerEmail: process.env.NEXT_PUBLIC_EMAIL!,
     redirectURL: process.env.NEXT_PUBLIC_BASEURL!,
     text: `Pay  N${consultation.price}  Now`,
     mode: process.env.NEXT_PUBLIC_MODE!,
